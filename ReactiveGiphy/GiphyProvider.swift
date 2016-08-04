@@ -33,7 +33,7 @@ private extension String {
 typealias Parameters = [String: AnyObject]?
 
 // MARK: - Provider
-let GiphyProvider = MoyaProvider<GiphyAPI>(plugins: [NetworkLoggerPlugin(verbose: true,
+let GiphyProvider = RxMoyaProvider<GiphyAPI>(plugins: [NetworkLoggerPlugin(verbose: true,
     responseDataFormatter: JSONResponseDataFormatter)])
 
 // MARK: Provider configuration.

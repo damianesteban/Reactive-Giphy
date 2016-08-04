@@ -14,6 +14,8 @@
 		FB35E0BA1D538A5E0064A789 /* trending.json in Resources */ = {isa = PBXBuildFile; fileRef = FB35E0B91D538A5E0064A789 /* trending.json */; };
 		FB35E0BC1D538A830064A789 /* GiphModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0BB1D538A830064A789 /* GiphModelTests.swift */; };
 		FB35E0BF1D5391980064A789 /* GiphyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0BE1D5391980064A789 /* GiphyProvider.swift */; };
+		FB4EC4DF1D53C1AC00E910E2 /* TrendingGiphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4EC4DE1D53C1AC00E910E2 /* TrendingGiphViewModel.swift */; };
+		FB4EC4E11D53C76D00E910E2 /* GiphyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4EC4E01D53C76D00E910E2 /* GiphyAPIService.swift */; };
 		FBFA06471D53798600646A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA06461D53798600646A3C /* AppDelegate.swift */; };
 		FBFA06491D53798600646A3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA06481D53798600646A3C /* ViewController.swift */; };
 		FBFA064C1D53798600646A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFA064A1D53798600646A3C /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		FB35E0B91D538A5E0064A789 /* trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trending.json; sourceTree = "<group>"; };
 		FB35E0BB1D538A830064A789 /* GiphModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphModelTests.swift; sourceTree = "<group>"; };
 		FB35E0BE1D5391980064A789 /* GiphyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyProvider.swift; sourceTree = "<group>"; };
+		FB4EC4DE1D53C1AC00E910E2 /* TrendingGiphViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingGiphViewModel.swift; sourceTree = "<group>"; };
+		FB4EC4E01D53C76D00E910E2 /* GiphyAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyAPIService.swift; sourceTree = "<group>"; };
 		FBFA06431D53798600646A3C /* ReactiveGiphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveGiphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBFA06461D53798600646A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBFA06481D53798600646A3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,8 +128,17 @@
 			isa = PBXGroup;
 			children = (
 				FB35E0BE1D5391980064A789 /* GiphyProvider.swift */,
+				FB4EC4E01D53C76D00E910E2 /* GiphyAPIService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		FBA91AFB1D53A76B00A166F0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FB4EC4DE1D53C1AC00E910E2 /* TrendingGiphViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		FBFA063A1D53798600646A3C = {
@@ -151,6 +164,7 @@
 		FBFA06451D53798600646A3C /* ReactiveGiphy */ = {
 			isa = PBXGroup;
 			children = (
+				FBA91AFB1D53A76B00A166F0 /* ViewModels */,
 				FB35E0BD1D5391820064A789 /* Services */,
 				FB35E0B81D538A4E0064A789 /* Resources */,
 				FB35E0B51D5386530064A789 /* Protocols */,
@@ -377,8 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB35E0BF1D5391980064A789 /* GiphyProvider.swift in Sources */,
+				FB4EC4E11D53C76D00E910E2 /* GiphyAPIService.swift in Sources */,
 				FB35E0B71D53867E0064A789 /* JSONable+Loader.swift in Sources */,
 				FBFA06491D53798600646A3C /* ViewController.swift in Sources */,
+				FB4EC4DF1D53C1AC00E910E2 /* TrendingGiphViewModel.swift in Sources */,
 				FBFA06471D53798600646A3C /* AppDelegate.swift in Sources */,
 				FB35E0B41D53820B0064A789 /* Giph.swift in Sources */,
 			);

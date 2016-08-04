@@ -8,22 +8,21 @@
 
 import UIKit
 import SwiftyJSON
+import RxSwift
 
 class ViewController: UIViewController {
-
+    
+    let disposeBag = DisposeBag()
+    private var viewModel: TrendingGiphyViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        GiphyProvider.request(.Trending) { result in
-            switch result {
-            case let .Success(response):
-                let jsonArray = JSON(data: response.data)["data"].arrayValue
-                let giphs = jsonArray.flatMap { Giph.fromJSON($0) }
-                print(giphs)
-            case let .Failure(error):
-                print(error)
-            }
-        }
-        // Do any additional setup after loading the view, typically from a nib.
+        viewModel = TrendingGiphyViewModel(giphyService: GiphyAPIService())
+        
+        viewModel.giphs
+            .subscribeNext { value in
+                print(value)
+        }.addDisposableTo(disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
