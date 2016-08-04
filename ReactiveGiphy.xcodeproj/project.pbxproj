@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		136FE249B4A3389894D68F83 /* Pods_ReactiveGiphy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1DCD0E497A3D30AF889FAA /* Pods_ReactiveGiphy.framework */; };
 		AD6BA4831A4E551863859CBD /* Pods_ReactiveGiphyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94269F7722783305F581943 /* Pods_ReactiveGiphyTests.framework */; };
+		FB35E0B41D53820B0064A789 /* Giph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0B31D53820B0064A789 /* Giph.swift */; };
+		FB35E0B71D53867E0064A789 /* JSONable+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0B61D53867E0064A789 /* JSONable+Loader.swift */; };
+		FB35E0BA1D538A5E0064A789 /* trending.json in Resources */ = {isa = PBXBuildFile; fileRef = FB35E0B91D538A5E0064A789 /* trending.json */; };
+		FB35E0BC1D538A830064A789 /* GiphModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0BB1D538A830064A789 /* GiphModelTests.swift */; };
+		FB35E0BF1D5391980064A789 /* GiphyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0BE1D5391980064A789 /* GiphyProvider.swift */; };
 		FBFA06471D53798600646A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA06461D53798600646A3C /* AppDelegate.swift */; };
 		FBFA06491D53798600646A3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA06481D53798600646A3C /* ViewController.swift */; };
 		FBFA064C1D53798600646A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFA064A1D53798600646A3C /* Main.storyboard */; };
@@ -34,6 +39,11 @@
 		9F62EC8A49480C5EE7A70635 /* Pods-ReactiveGiphy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveGiphy.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveGiphy/Pods-ReactiveGiphy.release.xcconfig"; sourceTree = "<group>"; };
 		CC1DCD0E497A3D30AF889FAA /* Pods_ReactiveGiphy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveGiphy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94269F7722783305F581943 /* Pods_ReactiveGiphyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveGiphyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB35E0B31D53820B0064A789 /* Giph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Giph.swift; sourceTree = "<group>"; };
+		FB35E0B61D53867E0064A789 /* JSONable+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONable+Loader.swift"; sourceTree = "<group>"; };
+		FB35E0B91D538A5E0064A789 /* trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trending.json; sourceTree = "<group>"; };
+		FB35E0BB1D538A830064A789 /* GiphModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphModelTests.swift; sourceTree = "<group>"; };
+		FB35E0BE1D5391980064A789 /* GiphyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyProvider.swift; sourceTree = "<group>"; };
 		FBFA06431D53798600646A3C /* ReactiveGiphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveGiphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBFA06461D53798600646A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBFA06481D53798600646A3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +96,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB35E0B21D5381F80064A789 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB35E0B31D53820B0064A789 /* Giph.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FB35E0B51D5386530064A789 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FB35E0B61D53867E0064A789 /* JSONable+Loader.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		FB35E0B81D538A4E0064A789 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FB35E0B91D538A5E0064A789 /* trending.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FB35E0BD1D5391820064A789 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FB35E0BE1D5391980064A789 /* GiphyProvider.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		FBFA063A1D53798600646A3C = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +151,10 @@
 		FBFA06451D53798600646A3C /* ReactiveGiphy */ = {
 			isa = PBXGroup;
 			children = (
+				FB35E0BD1D5391820064A789 /* Services */,
+				FB35E0B81D538A4E0064A789 /* Resources */,
+				FB35E0B51D5386530064A789 /* Protocols */,
+				FB35E0B21D5381F80064A789 /* Models */,
 				FBFA06461D53798600646A3C /* AppDelegate.swift */,
 				FBFA06481D53798600646A3C /* ViewController.swift */,
 				FBFA064A1D53798600646A3C /* Main.storyboard */,
@@ -124,6 +170,7 @@
 			children = (
 				FBFA065B1D53798700646A3C /* ReactiveGiphyTests.swift */,
 				FBFA065D1D53798700646A3C /* Info.plist */,
+				FB35E0BB1D538A830064A789 /* GiphModelTests.swift */,
 			);
 			path = ReactiveGiphyTests;
 			sourceTree = "<group>";
@@ -215,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB35E0BA1D538A5E0064A789 /* trending.json in Resources */,
 				FBFA06511D53798700646A3C /* LaunchScreen.storyboard in Resources */,
 				FBFA064E1D53798700646A3C /* Assets.xcassets in Resources */,
 				FBFA064C1D53798600646A3C /* Main.storyboard in Resources */,
@@ -328,8 +376,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB35E0BF1D5391980064A789 /* GiphyProvider.swift in Sources */,
+				FB35E0B71D53867E0064A789 /* JSONable+Loader.swift in Sources */,
 				FBFA06491D53798600646A3C /* ViewController.swift in Sources */,
 				FBFA06471D53798600646A3C /* AppDelegate.swift in Sources */,
+				FB35E0B41D53820B0064A789 /* Giph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBFA065C1D53798700646A3C /* ReactiveGiphyTests.swift in Sources */,
+				FB35E0BC1D538A830064A789 /* GiphModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

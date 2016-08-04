@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (3.4.1)
-  - Decodable (0.4.3)
   - Gifu (1.2.1)
   - Moya/Core (6.5.0):
     - Alamofire (~> 3.0)
@@ -10,20 +9,21 @@ PODS:
     - RxSwift (~> 2.0)
   - Result (2.1.1)
   - RxSwift (2.5.0)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Decodable
   - Gifu
   - Moya/RxSwift
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  Decodable: ab6c7d02a5df949d3ab16b2696528a3241e37c76
   Gifu: 0eab1ca24a4adbd949338bcb71a8556748cb2d28
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
   Result: 822c879f145943320cc80a9a8372378e3d699fe4
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 51d0558f8d23f43c0ed606bde0231b4312aa0667
+PODFILE CHECKSUM: 8e5d01dd478cd6cdfaa3832170578975baba7521
 
 COCOAPODS: 1.0.1
