@@ -1,0 +1,6 @@
+framework module Pods_ReactiveGiphy {
+  umbrella header "Pods-ReactiveGiphy-umbrella.h"
+
+  export *
+  module * { export * }
+}
