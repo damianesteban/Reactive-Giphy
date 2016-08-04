@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        GiphyProvider.request(.Trending) { result in
+            switch result {
+            case let .Success(response):
+                let jsonArray = JSON(data: response.data)["data"].arrayValue
+                let giphs = jsonArray.flatMap { Giph.fromJSON($0) }
+                print(giphs)
+            case let .Failure(error):
+                print(error)
+            }
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
