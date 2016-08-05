@@ -14,6 +14,9 @@ struct Giph: JSONable {
     let id: String
     let username: String
     let urlString: String
+    let trendingDateString: String
+    let rating: String
+    
     
     var url: NSURL {
         guard let url = NSURL(string: urlString) else {
@@ -25,9 +28,12 @@ struct Giph: JSONable {
     static func fromJSON(json: JSON) -> Giph {
         let id = json["id"].stringValue
         let username = json["user"]["username"].stringValue
+        let rating = json["rating"].stringValue
+        let trendingDateString = json["trending_datetime"].stringValue
         let urlString = json["images"]["fixed_width_downsampled"]["url"].stringValue
 
-        return Giph(id: id, username: username, urlString: urlString)
+        return Giph(id: id, username: username, urlString: urlString, trendingDateString: trendingDateString,
+                rating: rating)
     }
     
     static func arrayFromJSON(object: AnyObject) -> [Giph] {

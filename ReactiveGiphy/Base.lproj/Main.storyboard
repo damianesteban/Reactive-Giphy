@@ -102,21 +102,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5V-Iq-JEO">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Search!"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tpV-5G-ylb" firstAttribute="centerX" secondItem="H7n-jL-dlx" secondAttribute="centerX" id="CQs-fh-gkQ"/>
-                            <constraint firstItem="tpV-5G-ylb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="FIB-qw-2GN"/>
+                            <constraint firstItem="tpV-5G-ylb" firstAttribute="centerX" secondItem="H7n-jL-dlx" secondAttribute="centerX" id="CQs-fh-gkQ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-43"/>
+                            </constraint>
+                            <constraint firstItem="tpV-5G-ylb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="FIB-qw-2GN">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="H7n-jL-dlx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Icn-D7-A7x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z5V-Iq-JEO" secondAttribute="trailing" constant="4" id="MOm-mi-ePP">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="H7n-jL-dlx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Y0t-Kw-ALT"/>
                             <constraint firstItem="tpV-5G-ylb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="b2J-g2-vr3"/>
                             <constraint firstAttribute="trailing" secondItem="H7n-jL-dlx" secondAttribute="trailing" id="cbc-TB-B8R"/>
+                            <constraint firstItem="z5V-Iq-JEO" firstAttribute="top" secondItem="tpV-5G-ylb" secondAttribute="top" id="dNf-GG-BPR"/>
                             <constraint firstItem="H7n-jL-dlx" firstAttribute="top" secondItem="tpV-5G-ylb" secondAttribute="bottom" constant="8" symbolic="YES" id="dUK-ad-eMo"/>
+                            <constraint firstItem="z5V-Iq-JEO" firstAttribute="leading" secondItem="tpV-5G-ylb" secondAttribute="trailing" constant="8" symbolic="YES" id="fSs-IT-I5u"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="H7n-jL-dlx"/>
                                 <exclude reference="tpV-5G-ylb"/>
+                                <exclude reference="z5V-Iq-JEO"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="CQs-fh-gkQ"/>
@@ -126,12 +140,16 @@
                                 <exclude reference="Y0t-Kw-ALT"/>
                                 <exclude reference="cbc-TB-B8R"/>
                                 <exclude reference="dUK-ad-eMo"/>
+                                <exclude reference="MOm-mi-ePP"/>
+                                <exclude reference="dNf-GG-BPR"/>
+                                <exclude reference="fSs-IT-I5u"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="H7n-jL-dlx"/>
                                 <include reference="tpV-5G-ylb"/>
+                                <include reference="z5V-Iq-JEO"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="CQs-fh-gkQ"/>
@@ -141,6 +159,9 @@
                                 <include reference="Y0t-Kw-ALT"/>
                                 <include reference="cbc-TB-B8R"/>
                                 <include reference="dUK-ad-eMo"/>
+                                <include reference="MOm-mi-ePP"/>
+                                <include reference="dNf-GG-BPR"/>
+                                <include reference="fSs-IT-I5u"/>
                             </mask>
                         </variation>
                     </view>
@@ -152,13 +173,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.5" y="385.5"/>
+            <point key="canvasLocation" x="888" y="375.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hhr-eR-Ugd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9wD-Gl-R3C" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W9R-zs-29b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -170,7 +192,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kI4-6E-37l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="357" y="385.5"/>
+            <point key="canvasLocation" x="133.5" y="375.75"/>
         </scene>
     </scenes>
 </document>
