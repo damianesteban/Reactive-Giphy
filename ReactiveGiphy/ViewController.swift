@@ -8,29 +8,33 @@
 
 import UIKit
 import SwiftyJSON
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    let disposeBag = DisposeBag()
+    private var viewModel: TrendingGiphyViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        GiphyProvider.request(.Trending) { result in
-            switch result {
-            case let .Success(response):
-                let jsonArray = JSON(data: response.data)["data"].arrayValue
-                let giphs = jsonArray.flatMap { Giph.fromJSON($0) }
-                print(giphs)
-            case let .Failure(error):
-                print(error)
-            }
-        }
-        // Do any additional setup after loading the view, typically from a nib.
+        bindViewModel()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func bindViewModel() {
+        viewModel = TrendingGiphyViewModel(giphyService: GiphyAPIService())
+        viewModel.giphs
+            .bindTo(collectionView.rx_itemsWithCellIdentifier("cell",
+                cellType: TrendingGiphCollectionViewCell.self)) { (_, item, cell) in
+                cell.configure(with: item)
+        }.addDisposableTo(disposeBag)
+    }
 }
 

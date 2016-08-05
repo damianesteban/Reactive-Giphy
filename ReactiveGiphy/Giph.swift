@@ -29,4 +29,11 @@ struct Giph: JSONable {
 
         return Giph(id: id, username: username, urlString: urlString)
     }
+    
+    static func arrayFromJSON(object: AnyObject) -> [Giph] {
+        let json = JSON(object)
+        return json["data"].arrayValue.map {
+            return Giph.fromJSON($0)
+        }
+    }
 }
