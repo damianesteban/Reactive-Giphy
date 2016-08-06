@@ -8,8 +8,17 @@
 
 import UIKit
 
+
+enum SegueIdentifier: String {
+    case ShowSearchResults
+}
+
+enum StoryboardNames: String {
+    case Main = "Main"
+}
+
 struct StoryBoard {
-    static let main = UIStoryboard(name: "Main", bundle: nil)
+    static let main = UIStoryboard(name: StoryboardNames.Main.rawValue, bundle: nil)
 }
 
 extension UIViewController {
@@ -24,5 +33,18 @@ extension UIStoryboard {
             fatalError("Error when casting to \(T.self)")
         }
         return viewController
+    }
+}
+
+extension UIStoryboardSegue {
+}
+
+func ==(lhs: UIStoryboardSegue, rhs: SegueIdentifier) -> Bool {
+    return lhs.identifier == rhs.rawValue
+}
+
+extension UIViewController {
+    func performSegue(identifier:SegueIdentifier) {
+        performSegueWithIdentifier(identifier.rawValue, sender: self)
     }
 }

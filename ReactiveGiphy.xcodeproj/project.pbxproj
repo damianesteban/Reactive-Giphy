@@ -14,6 +14,7 @@
 		FB0E93A01D5506D1007DA196 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E939F1D5506D1007DA196 /* InputValidator.swift */; };
 		FB0E93A21D551424007DA196 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E93A11D551424007DA196 /* SecondViewController.swift */; };
 		FB0E93A61D5520C9007DA196 /* StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E93A51D5520C9007DA196 /* StoryBoard.swift */; };
+		FB0E93A81D562845007DA196 /* SearchGiphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E93A71D562845007DA196 /* SearchGiphViewModel.swift */; };
 		FB35E0B41D53820B0064A789 /* Giph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0B31D53820B0064A789 /* Giph.swift */; };
 		FB35E0B71D53867E0064A789 /* JSONable+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0B61D53867E0064A789 /* JSONable+Loader.swift */; };
 		FB35E0BA1D538A5E0064A789 /* trending.json in Resources */ = {isa = PBXBuildFile; fileRef = FB35E0B91D538A5E0064A789 /* trending.json */; };
@@ -51,6 +52,7 @@
 		FB0E939F1D5506D1007DA196 /* InputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		FB0E93A11D551424007DA196 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		FB0E93A51D5520C9007DA196 /* StoryBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoard.swift; sourceTree = "<group>"; };
+		FB0E93A71D562845007DA196 /* SearchGiphViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGiphViewModel.swift; sourceTree = "<group>"; };
 		FB35E0B31D53820B0064A789 /* Giph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Giph.swift; sourceTree = "<group>"; };
 		FB35E0B61D53867E0064A789 /* JSONable+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONable+Loader.swift"; sourceTree = "<group>"; };
 		FB35E0B91D538A5E0064A789 /* trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trending.json; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				FB4EC4DE1D53C1AC00E910E2 /* TrendingGiphViewModel.swift */,
+				FB0E93A71D562845007DA196 /* SearchGiphViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				FB0E93A61D5520C9007DA196 /* StoryBoard.swift in Sources */,
 				FB4EC4E11D53C76D00E910E2 /* GiphyAPIService.swift in Sources */,
 				FB35E0B71D53867E0064A789 /* JSONable+Loader.swift in Sources */,
+				FB0E93A81D562845007DA196 /* SearchGiphViewModel.swift in Sources */,
 				FB0E93A01D5506D1007DA196 /* InputValidator.swift in Sources */,
 				FBFA06491D53798600646A3C /* ViewController.swift in Sources */,
 				FB4EC4DF1D53C1AC00E910E2 /* TrendingGiphViewModel.swift in Sources */,

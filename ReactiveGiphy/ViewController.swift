@@ -10,7 +10,6 @@ import UIKit
 import SwiftyJSON
 import RxSwift
 import RxCocoa
-import RxSegue
 import Action
 
 class ViewController: UIViewController {
@@ -18,13 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTextBar: UITextField!
     @IBOutlet weak var searchButton: UIButton!
-    
-    var profileSegue: AnyObserver<Void> {
-        return ModalSegue(fromViewController: self, toViewControllerFactory: {
-            (sender, context) -> SecondViewController in
-            return StoryBoard.main.instantiateViewController()
-        }).asObserver()
-    }
     
     let disposeBag = DisposeBag()
     private var viewModel: TrendingGiphyViewModel!
@@ -64,15 +56,28 @@ class ViewController: UIViewController {
             .bindTo(searchButton.rx_enabled)
             .addDisposableTo(disposeBag)
         
-        searchButton.rx_tap
-            .bindTo(profileSegue)
-            .addDisposableTo(disposeBag)
-        
         // TODO: take another look at the Action library.
         //        let action: Action<String, Bool> = Action(enabledIf: validSearchText, workFactory: { input in
         //            return viewModel.validateSearchText(input)
         //        })
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let nextViewController = segue.destinationViewController as! SecondViewController
+        nextViewController.searchText = searchTextBar.text ?? ""
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
 

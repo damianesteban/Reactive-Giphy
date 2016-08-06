@@ -106,6 +106,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5V-Iq-JEO">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Search!"/>
+                                <connections>
+                                    <segue destination="m9M-6t-07S" kind="showDetail" identifier="ShowSearchResults" id="Lj3-eg-Uxd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -187,6 +190,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Lb9-Js-JDZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Ze-5t-j7A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvM-sV-wZ3">
@@ -272,7 +276,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XqI-eQ-Vx4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PuZ-bm-yL7">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="80" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -319,16 +323,15 @@
                                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
                                         </constraints>
-                                        <size key="customSize" width="80" height="80"/>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="0w6-Wt-SfS"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="VYr-6h-798"/>
                                                 <exclude reference="NmH-Cr-Zf5"/>
-                                                <exclude reference="vKV-HC-4PF"/>
+                                                <exclude reference="VYr-6h-798"/>
                                                 <exclude reference="eZz-wD-9ex"/>
+                                                <exclude reference="vKV-HC-4PF"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -336,10 +339,10 @@
                                                 <include reference="0w6-Wt-SfS"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="VYr-6h-798"/>
                                                 <include reference="NmH-Cr-Zf5"/>
-                                                <include reference="vKV-HC-4PF"/>
+                                                <include reference="VYr-6h-798"/>
                                                 <include reference="eZz-wD-9ex"/>
+                                                <include reference="vKV-HC-4PF"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -351,7 +354,9 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4j-PI-Rwd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="Cy0-oE-3OS"/>
+                                    <navigationItem title="Title" id="Cy0-oE-3OS">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="JYM-IY-HyQ"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -410,10 +415,15 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="collectionView" destination="XqI-eQ-Vx4" id="v5D-pJ-TT4"/>
+                        <outlet property="doneButton" destination="JYM-IY-HyQ" id="v1K-ih-ZNc"/>
+                        <outlet property="filterSegmentedControl" destination="IMJ-Kd-WBi" id="GwJ-TS-NFZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbg-PO-6E1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="375"/>
+            <point key="canvasLocation" x="1117.5" y="375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hhr-eR-Ugd">

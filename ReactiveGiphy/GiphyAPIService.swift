@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxOptional
 
 class GiphyAPIService {
     
@@ -17,6 +18,16 @@ class GiphyAPIService {
     
     func fetchTrendingGiphs() -> Observable<[Giph]> {
         return GiphyProvider.request(.Trending)
+            .observeOn(MainScheduler.instance)
+            .debug()
+            .mapJSON()
+            .map { json in
+                return Giph.arrayFromJSON(json)
+        }
+    }
+    
+    func fetchSearchResultsGiphs(query: String) -> Observable<[Giph]> {
+        return GiphyProvider.request(.Search(query))
             .observeOn(MainScheduler.instance)
             .debug()
             .mapJSON()

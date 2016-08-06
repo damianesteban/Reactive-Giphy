@@ -6,6 +6,7 @@ target 'ReactiveGiphy' do
   use_frameworks!
   pod 'Moya/RxSwift'
   pod 'RxSegue'
+  pod 'RxOptional'
   pod 'Action'
   pod 'RxCocoa'
   pod 'SwiftyJSON'

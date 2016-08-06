@@ -13,6 +13,9 @@ PODS:
   - Result (2.1.1)
   - RxCocoa (2.5.0):
     - RxSwift (~> 2.5)
+  - RxOptional (2.0.0):
+    - RxCocoa (~> 2.0)
+    - RxSwift (~> 2.0)
   - RxSegue (0.1.1):
     - RxCocoa (~> 2.0)
     - RxSwift (~> 2.0)
@@ -24,6 +27,7 @@ DEPENDENCIES:
   - Gifu
   - Moya/RxSwift
   - RxCocoa
+  - RxOptional
   - RxSegue
   - SwiftyJSON
 
@@ -34,10 +38,11 @@ SPEC CHECKSUMS:
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
   Result: 822c879f145943320cc80a9a8372378e3d699fe4
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
+  RxOptional: b77fb47a0190213cf8a37c7a2b7fda28160b4563
   RxSegue: bb4cffb39bd5ef49cc701fe1a1493daa4f9805ba
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: f60f8a78bd5ed507940fdc141545432a7d8f59aa
+PODFILE CHECKSUM: 2bb59280e5c00506c57e9ecd8aa46653aeebcdc8
 
 COCOAPODS: 1.0.1
