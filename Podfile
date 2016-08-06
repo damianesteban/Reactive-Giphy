@@ -6,13 +6,10 @@ target 'ReactiveGiphy' do
   use_frameworks!
   pod 'Moya/RxSwift'
   pod 'Kingfisher'
-  pod 'Nuke'
-  pod 'Nuke-AnimatedImage-Plugin'
   pod 'RxOptional'
   pod 'Action'
   pod 'RxCocoa'
   pod 'SwiftyJSON'
-  pod 'Gifu'
 
   # Pods for ReactiveGiphy
 
