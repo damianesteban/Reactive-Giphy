@@ -11,35 +11,33 @@ import RxSwift
 import RxOptional
 
 /*
-    Actions:
+ Actions:
  
-        - Filter giphs based on rating
-        - Display giph title
-        - fetch giphs
+ - Filter giphs based on rating
+ - Display giph title
+ - fetch giphs
  */
 
 class SearchGiphViewModel {
-
+    
     // Input:
     let searchText: String
-   // let filterGiphsObservable: PublishSubject<Bool>
+    // let filterGiphsObservable: PublishSubject<Bool>
     
     // Output:
     let giphs: Observable<[Giph]>
-   // let titleObservable: Observable<String>
-//    let search
-
-
+    // let titleObservable: Observable<String>
+    
     // Private
     private let disposeBag = DisposeBag()
-    private let giphyAPIService: GiphyAPIService
+    private let networkService: GiphyAPIService
     
     // MARK: - Initializer
     init(giphyService: GiphyAPIService, searchText: String) {
-        self.giphyAPIService = giphyService
+        self.networkService = giphyService
         self.searchText = searchText
         giphs = giphyService.fetchSearchResultsGiphs(searchText)
+        print("I'm being initialized")
     }
-
-
+    
 }

@@ -18,6 +18,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchTextBar: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     
+    @IBAction func showSearchResultsController(sender: AnyObject) {
+        performSegue(.ShowSearchResults)
+    }
+    
+    
     let disposeBag = DisposeBag()
     private var viewModel: TrendingGiphyViewModel!
     

@@ -19,11 +19,11 @@ final class TrendingGiphyViewModel: InputValidator {
     
     // Private
     private let disposeBag = DisposeBag()
-    private let giphyAPIService: GiphyAPIService
+    private let networkService: GiphyAPIService
     
     // MARK: - Initializer
     init(giphyService: GiphyAPIService) {
-        self.giphyAPIService = giphyService
+        self.networkService = giphyService
         giphs = giphyService.fetchTrendingGiphs()
     }
     
@@ -31,6 +31,4 @@ final class TrendingGiphyViewModel: InputValidator {
     func validateSearchText(text: String) -> Bool {
         return text.characters.count > 3 ? true : false
     }
-    
-    
 }

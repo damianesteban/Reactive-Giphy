@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xvw-Gh-cCO" customClass="AnimatableImageView" customModule="Gifu">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xvw-Gh-cCO" customClass="AnimatedImageView" customModule="Kingfisher">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="OWX-xg-tqc"/>
@@ -107,7 +107,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Search!"/>
                                 <connections>
-                                    <segue destination="m9M-6t-07S" kind="showDetail" identifier="ShowSearchResults" id="Lj3-eg-Uxd"/>
+                                    <action selector="showSearchResultsController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6bv-Ng-TkY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -175,6 +175,7 @@
                         <outlet property="collectionView" destination="H7n-jL-dlx" id="TTj-3f-8WW"/>
                         <outlet property="searchButton" destination="z5V-Iq-JEO" id="nKW-P6-6Uk"/>
                         <outlet property="searchTextBar" destination="tpV-5G-ylb" id="uBI-1z-18h"/>
+                        <segue destination="m9M-6t-07S" kind="presentation" identifier="ShowSearchResults" id="UiL-i4-naN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -276,7 +277,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XqI-eQ-Vx4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PuZ-bm-yL7">
-                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -289,7 +290,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0w6-Wt-SfS" customClass="AnimatableImageView" customModule="Gifu">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0w6-Wt-SfS" customClass="AnimatedImageView" customModule="Kingfisher">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="FIC-nk-RCD"/>
@@ -323,6 +324,7 @@
                                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
                                         </constraints>
+                                        <size key="customSize" width="80" height="80"/>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="0w6-Wt-SfS"/>
@@ -355,7 +357,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="Cy0-oE-3OS">
-                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="JYM-IY-HyQ"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="b36-eP-g0S"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -416,14 +418,14 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="collectionView" destination="XqI-eQ-Vx4" id="v5D-pJ-TT4"/>
-                        <outlet property="doneButton" destination="JYM-IY-HyQ" id="v1K-ih-ZNc"/>
-                        <outlet property="filterSegmentedControl" destination="IMJ-Kd-WBi" id="GwJ-TS-NFZ"/>
+                        <outlet property="collectionView" destination="XqI-eQ-Vx4" id="KI2-Q8-R79"/>
+                        <outlet property="doneButton" destination="b36-eP-g0S" id="7cD-MT-KHl"/>
+                        <outlet property="filterSegmentedControl" destination="IMJ-Kd-WBi" id="6Do-9f-nCg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbg-PO-6E1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5" y="375"/>
+            <point key="canvasLocation" x="1066.5" y="375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hhr-eR-Ugd">
