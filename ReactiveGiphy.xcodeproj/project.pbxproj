@@ -11,6 +11,9 @@
 		AD6BA4831A4E551863859CBD /* Pods_ReactiveGiphyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94269F7722783305F581943 /* Pods_ReactiveGiphyTests.framework */; };
 		FB0E939C1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E939B1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift */; };
 		FB0E939E1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E939D1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift */; };
+		FB0E93A01D5506D1007DA196 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E939F1D5506D1007DA196 /* InputValidator.swift */; };
+		FB0E93A21D551424007DA196 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E93A11D551424007DA196 /* SecondViewController.swift */; };
+		FB0E93A61D5520C9007DA196 /* StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E93A51D5520C9007DA196 /* StoryBoard.swift */; };
 		FB35E0B41D53820B0064A789 /* Giph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0B31D53820B0064A789 /* Giph.swift */; };
 		FB35E0B71D53867E0064A789 /* JSONable+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0B61D53867E0064A789 /* JSONable+Loader.swift */; };
 		FB35E0BA1D538A5E0064A789 /* trending.json in Resources */ = {isa = PBXBuildFile; fileRef = FB35E0B91D538A5E0064A789 /* trending.json */; };
@@ -45,6 +48,9 @@
 		D94269F7722783305F581943 /* Pods_ReactiveGiphyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveGiphyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0E939B1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingGiphCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB0E939D1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
+		FB0E939F1D5506D1007DA196 /* InputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
+		FB0E93A11D551424007DA196 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		FB0E93A51D5520C9007DA196 /* StoryBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoard.swift; sourceTree = "<group>"; };
 		FB35E0B31D53820B0064A789 /* Giph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Giph.swift; sourceTree = "<group>"; };
 		FB35E0B61D53867E0064A789 /* JSONable+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONable+Loader.swift"; sourceTree = "<group>"; };
 		FB35E0B91D538A5E0064A789 /* trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trending.json; sourceTree = "<group>"; };
@@ -113,6 +119,23 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		FB0E93A31D552037007DA196 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FBFA06481D53798600646A3C /* ViewController.swift */,
+				FB0E93A11D551424007DA196 /* SecondViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FB0E93A41D5520AA007DA196 /* Common UI */ = {
+			isa = PBXGroup;
+			children = (
+				FB0E93A51D5520C9007DA196 /* StoryBoard.swift */,
+			);
+			name = "Common UI";
+			sourceTree = "<group>";
+		};
 		FB35E0B21D5381F80064A789 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				FB35E0B61D53867E0064A789 /* JSONable+Loader.swift */,
+				FB0E939F1D5506D1007DA196 /* InputValidator.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -177,6 +201,8 @@
 		FBFA06451D53798600646A3C /* ReactiveGiphy */ = {
 			isa = PBXGroup;
 			children = (
+				FB0E93A41D5520AA007DA196 /* Common UI */,
+				FB0E93A31D552037007DA196 /* Controllers */,
 				FB0E939A1D54DFDD007DA196 /* Views */,
 				FBA91AFB1D53A76B00A166F0 /* ViewModels */,
 				FB35E0BD1D5391820064A789 /* Services */,
@@ -184,7 +210,6 @@
 				FB35E0B51D5386530064A789 /* Protocols */,
 				FB35E0B21D5381F80064A789 /* Models */,
 				FBFA06461D53798600646A3C /* AppDelegate.swift */,
-				FBFA06481D53798600646A3C /* ViewController.swift */,
 				FBFA064A1D53798600646A3C /* Main.storyboard */,
 				FBFA064D1D53798700646A3C /* Assets.xcassets */,
 				FBFA064F1D53798700646A3C /* LaunchScreen.storyboard */,
@@ -404,11 +429,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0E93A21D551424007DA196 /* SecondViewController.swift in Sources */,
 				FB35E0BF1D5391980064A789 /* GiphyProvider.swift in Sources */,
 				FB0E939C1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift in Sources */,
 				FB0E939E1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift in Sources */,
+				FB0E93A61D5520C9007DA196 /* StoryBoard.swift in Sources */,
 				FB4EC4E11D53C76D00E910E2 /* GiphyAPIService.swift in Sources */,
 				FB35E0B71D53867E0064A789 /* JSONable+Loader.swift in Sources */,
+				FB0E93A01D5506D1007DA196 /* InputValidator.swift in Sources */,
 				FBFA06491D53798600646A3C /* ViewController.swift in Sources */,
 				FB4EC4DF1D53C1AC00E910E2 /* TrendingGiphViewModel.swift in Sources */,
 				FBFA06471D53798600646A3C /* AppDelegate.swift in Sources */,

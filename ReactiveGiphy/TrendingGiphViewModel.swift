@@ -9,15 +9,28 @@
 import Foundation
 import RxSwift
 
-final class TrendingGiphyViewModel {
+final class TrendingGiphyViewModel: InputValidator {
     
+    // Input
+    var searchText = PublishSubject<String>()
+    
+    // Output
+    let giphs: Observable<[Giph]>
+    
+    // Private
     private let disposeBag = DisposeBag()
     private let giphyAPIService: GiphyAPIService
     
-    let giphs: Observable<[Giph]>
-    
+    // MARK: - Initializer
     init(giphyService: GiphyAPIService) {
         self.giphyAPIService = giphyService
         giphs = giphyService.fetchTrendingGiphs()
     }
+    
+    // MARK: - InputValidator method
+    func validateSearchText(text: String) -> Bool {
+        return text.characters.count > 3 ? true : false
+    }
+    
+    
 }

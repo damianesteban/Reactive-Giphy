@@ -10,10 +10,21 @@ import UIKit
 import SwiftyJSON
 import RxSwift
 import RxCocoa
+import RxSegue
+import Action
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchTextBar: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    
+    var profileSegue: AnyObserver<Void> {
+        return ModalSegue(fromViewController: self, toViewControllerFactory: {
+            (sender, context) -> SecondViewController in
+            return StoryBoard.main.instantiateViewController()
+        }).asObserver()
+    }
     
     let disposeBag = DisposeBag()
     private var viewModel: TrendingGiphyViewModel!
@@ -35,6 +46,33 @@ class ViewController: UIViewController {
                 cellType: TrendingGiphCollectionViewCell.self)) { (_, item, cell) in
                 cell.configure(with: item)
         }.addDisposableTo(disposeBag)
+        
+        
+        let validSearchText = searchTextBar
+            .rx_text
+            .map { self.viewModel.validateSearchText($0) }
+            .shareReplay(1)
+        
+        validSearchText
+            .map { valid in
+                return valid ? UIColor.greenColor() : UIColor.clearColor()
+            }.subscribeNext { [weak self] color in
+                self?.searchTextBar.layer.borderColor = color.CGColor
+            }.addDisposableTo(disposeBag)
+        
+        validSearchText
+            .bindTo(searchButton.rx_enabled)
+            .addDisposableTo(disposeBag)
+        
+        searchButton.rx_tap
+            .bindTo(profileSegue)
+            .addDisposableTo(disposeBag)
+        
+        // TODO: take another look at the Action library.
+        //        let action: Action<String, Bool> = Action(enabledIf: validSearchText, workFactory: { input in
+        //            return viewModel.validateSearchText(input)
+        //        })
     }
+    
 }
 
