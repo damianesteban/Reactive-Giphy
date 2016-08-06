@@ -187,6 +187,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Lb9-Js-JDZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Ze-5t-j7A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvM-sV-wZ3">
@@ -325,10 +326,10 @@
                                                 <exclude reference="0w6-Wt-SfS"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="VYr-6h-798"/>
                                                 <exclude reference="NmH-Cr-Zf5"/>
-                                                <exclude reference="vKV-HC-4PF"/>
+                                                <exclude reference="VYr-6h-798"/>
                                                 <exclude reference="eZz-wD-9ex"/>
+                                                <exclude reference="vKV-HC-4PF"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -336,10 +337,10 @@
                                                 <include reference="0w6-Wt-SfS"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="VYr-6h-798"/>
                                                 <include reference="NmH-Cr-Zf5"/>
-                                                <include reference="vKV-HC-4PF"/>
+                                                <include reference="VYr-6h-798"/>
                                                 <include reference="eZz-wD-9ex"/>
+                                                <include reference="vKV-HC-4PF"/>
                                             </mask>
                                         </variation>
                                         <connections>
