@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     var profileSegue: AnyObserver<Void> {
         return ModalSegue(fromViewController: self, toViewControllerFactory: {
             (sender, context) -> SecondViewController in
-            
             return StoryBoard.main.instantiateViewController()
         }).asObserver()
     }
@@ -67,7 +66,7 @@ class ViewController: UIViewController {
         
         searchButton.rx_tap
             .bindTo(profileSegue)
-        .addDisposableTo(disposeBag)
+            .addDisposableTo(disposeBag)
         
         // TODO: take another look at the Action library.
         //        let action: Action<String, Bool> = Action(enabledIf: validSearchText, workFactory: { input in
