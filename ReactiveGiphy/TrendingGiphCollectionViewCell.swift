@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import Gifu
+import Kingfisher
 
 class TrendingGiphCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var animatibleImageView: AnimatableImageView!
+    @IBOutlet weak var animatibleImageView: AnimatedImageView!
     
     func configure(with model: Giph) {
-        guard let gifData = NSData(contentsOfURL: model.url) else { return }
-        animatibleImageView.animateWithImageData(gifData)
+       animatibleImageView.kf_setImageWithURL(model.url)
     }
 }

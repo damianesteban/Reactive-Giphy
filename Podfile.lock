@@ -3,20 +3,23 @@ PODS:
     - RxCocoa (~> 2.0)
     - RxSwift (~> 2.0)
   - Alamofire (3.4.1)
+  - FLAnimatedImage (1.0.12)
   - Gifu (1.2.1)
+  - Kingfisher (2.4.1)
   - Moya/Core (6.5.0):
     - Alamofire (~> 3.0)
     - Result (~> 2.0)
   - Moya/RxSwift (6.5.0):
     - Moya/Core
     - RxSwift (~> 2.0)
+  - Nuke (3.1.1)
+  - Nuke-AnimatedImage-Plugin (1.0.0):
+    - FLAnimatedImage (~> 1.0)
+    - Nuke (~> 3.0)
   - Result (2.1.1)
   - RxCocoa (2.5.0):
     - RxSwift (~> 2.5)
   - RxOptional (2.0.0):
-    - RxCocoa (~> 2.0)
-    - RxSwift (~> 2.0)
-  - RxSegue (0.1.1):
     - RxCocoa (~> 2.0)
     - RxSwift (~> 2.0)
   - RxSwift (2.5.0)
@@ -25,24 +28,29 @@ PODS:
 DEPENDENCIES:
   - Action
   - Gifu
+  - Kingfisher
   - Moya/RxSwift
+  - Nuke
+  - Nuke-AnimatedImage-Plugin
   - RxCocoa
   - RxOptional
-  - RxSegue
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Action: 4c00077042467dbc214418c0b3e46c652b2785c5
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   Gifu: 0eab1ca24a4adbd949338bcb71a8556748cb2d28
+  Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
+  Nuke: 75fb602d879372a68679293fdfbd758a1769880d
+  Nuke-AnimatedImage-Plugin: 5a35f5a38dcd6c9559225de1c80ac7e758bd0ef8
   Result: 822c879f145943320cc80a9a8372378e3d699fe4
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxOptional: b77fb47a0190213cf8a37c7a2b7fda28160b4563
-  RxSegue: bb4cffb39bd5ef49cc701fe1a1493daa4f9805ba
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 2bb59280e5c00506c57e9ecd8aa46653aeebcdc8
+PODFILE CHECKSUM: fba8b7d060ea7b2530fe98ed971462345b9048c9
 
 COCOAPODS: 1.0.1

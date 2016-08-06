@@ -5,7 +5,9 @@ target 'ReactiveGiphy' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'Moya/RxSwift'
-  pod 'RxSegue'
+  pod 'Kingfisher'
+  pod 'Nuke'
+  pod 'Nuke-AnimatedImage-Plugin'
   pod 'RxOptional'
   pod 'Action'
   pod 'RxCocoa'

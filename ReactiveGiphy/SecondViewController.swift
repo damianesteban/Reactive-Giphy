@@ -15,8 +15,9 @@ import Action
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var collectionView: UICollectionView!
+
     
     let disposeBag = DisposeBag()
     private var viewModel: SearchGiphViewModel!
