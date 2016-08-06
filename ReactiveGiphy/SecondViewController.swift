@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import SwiftyJSON
+import RxSwift
+import RxCocoa
+import Action
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+    let disposeBag = DisposeBag()
+    private var viewModel: SearchGiphViewModel!
+    
+    var searchText: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bindViewModel()
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +34,18 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func bindViewModel() {
+        viewModel = SearchGiphViewModel(giphyService: GiphyAPIService(), searchText: searchText)
+        viewModel.giphs
+            .bindTo(collectionView.rx_itemsWithCellIdentifier("cell", cellType: TrendingGiphCollectionViewCell.self)) { (_, item, cell) in
+                cell.configure(with: item)
+        }.addDisposableTo(disposeBag)
+        
+        doneButton.rx_tap
+            .subscribeNext { [weak self] in
+                self?.dismissViewControllerAnimated(true, completion: nil)
+        }.addDisposableTo(disposeBag)
+        
     }
-    */
 
 }

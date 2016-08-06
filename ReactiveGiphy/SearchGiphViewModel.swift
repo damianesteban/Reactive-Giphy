@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxOptional
 
 /*
     Actions:
@@ -20,12 +21,13 @@ import RxSwift
 class SearchGiphViewModel {
 
     // Input:
-    let searchTextObservable: PublishSubject<String>
-    let filterGiphsObservable: PublishSubject<Bool>
+    let searchText: String
+   // let filterGiphsObservable: PublishSubject<Bool>
     
     // Output:
     let giphs: Observable<[Giph]>
-    let titleObservable: Observable<String>
+   // let titleObservable: Observable<String>
+//    let search
 
 
     // Private
@@ -33,9 +35,10 @@ class SearchGiphViewModel {
     private let giphyAPIService: GiphyAPIService
     
     // MARK: - Initializer
-    init(giphyService: GiphyAPIService) {
+    init(giphyService: GiphyAPIService, searchText: String) {
         self.giphyAPIService = giphyService
-        giphs = giphyService.fetchTrendingGiphs()
+        self.searchText = searchText
+        giphs = giphyService.fetchSearchResultsGiphs(searchText)
     }
 
 
