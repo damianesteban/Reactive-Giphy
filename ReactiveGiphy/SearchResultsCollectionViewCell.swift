@@ -23,9 +23,9 @@ class SearchResultsCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
-    func configure(with model: Giph) {
-        giphImageView.kf_setImageWithURL(model.url, placeholderImage: nil, optionsInfo: [.ForceRefresh, .Transition(ImageTransition.Fade(1))])
-        if model.hasTrended {
+    func configure(with viewModel: SearchCellViewModel) {
+        giphImageView.kf_setImageWithURL(viewModel.url, placeholderImage: nil, optionsInfo: [.ForceRefresh, .Transition(ImageTransition.Fade(1))])
+        if viewModel.hasTrended {
             trendedLabel.hidden = false
             print("trended")
         }

@@ -17,3 +17,23 @@ let x = d1?.compare(d2!)
 
 print(dateFormatter.dateFromString(dateString))
 
+// pseudocode:
+
+
+// Inputs
+//let filterForRating: PublishSubject<Bool>
+//
+//func fetchSearchResults(filter: Bool) -> Observable<Object> {
+//    return provider.request
+//        //..
+//        //..
+//        .mapJSON()
+//    switch filter {
+//    case true:
+//        .filter($0.IsRatedR)
+//        return objects
+//    case false:
+//        .filter($0.IsRatedR)
+//        return objects
+//    }
+//}

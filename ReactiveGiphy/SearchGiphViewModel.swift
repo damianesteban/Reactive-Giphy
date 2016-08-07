@@ -39,4 +39,6 @@ class SearchGiphViewModel {
         giphs = giphyService.fetchSearchResultsGiphs(searchText)
         print("I'm being initialized")
     }
+    
+
 }
