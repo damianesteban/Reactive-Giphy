@@ -38,7 +38,7 @@ class SecondViewController: UIViewController {
     func bindViewModel() {
         viewModel = SearchGiphViewModel(giphyService: GiphyAPIService(), searchText: searchText)
         viewModel.giphs
-            .bindTo(collectionView.rx_itemsWithCellIdentifier("cell", cellType: TrendingGiphCollectionViewCell.self)) { (_, item, cell) in
+            .bindTo(collectionView.rx_itemsWithCellIdentifier("cell", cellType: SearchResultsCollectionViewCell.self)) { (_, item, cell) in
                 cell.configure(with: item)
         }.addDisposableTo(disposeBag)
         

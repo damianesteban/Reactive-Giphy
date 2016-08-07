@@ -277,78 +277,100 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XqI-eQ-Vx4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PuZ-bm-yL7">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="80" height="76"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="MLK-KH-X35" customClass="TrendingGiphCollectionViewCell" customModule="ReactiveGiphy" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="MLK-KH-X35" customClass="SearchResultsCollectionViewCell" customModule="ReactiveGiphy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0w6-Wt-SfS" customClass="AnimatedImageView" customModule="Kingfisher">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="AWH-yq-ZQc"/>
                                                         <constraint firstAttribute="height" constant="80" id="FIC-nk-RCD"/>
-                                                        <constraint firstAttribute="width" constant="80" id="M8X-Ah-bRm"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
+                                                            <exclude reference="AWH-yq-ZQc"/>
                                                             <exclude reference="FIC-nk-RCD"/>
-                                                            <exclude reference="M8X-Ah-bRm"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
+                                                            <exclude reference="AWH-yq-ZQc"/>
                                                             <exclude reference="FIC-nk-RCD"/>
-                                                            <exclude reference="M8X-Ah-bRm"/>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRENDED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HT0-qN-dEW">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="0w6-Wt-SfS" secondAttribute="bottom" constant="-8" id="NmH-Cr-Zf5"/>
+                                            <constraint firstItem="HT0-qN-dEW" firstAttribute="leading" secondItem="0w6-Wt-SfS" secondAttribute="leading" id="3qu-Dj-it2"/>
+                                            <constraint firstItem="HT0-qN-dEW" firstAttribute="top" secondItem="MLK-KH-X35" secondAttribute="topMargin" constant="47" id="9uU-7V-EQ4"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="0w6-Wt-SfS" secondAttribute="bottom" constant="-8" id="NmH-Cr-Zf5">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="-12"/>
+                                            </constraint>
                                             <constraint firstAttribute="trailingMargin" secondItem="0w6-Wt-SfS" secondAttribute="trailing" id="VYr-6h-798">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
                                             <constraint firstItem="0w6-Wt-SfS" firstAttribute="top" secondItem="MLK-KH-X35" secondAttribute="topMargin" id="eZz-wD-9ex">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="HT0-qN-dEW" secondAttribute="bottom" id="kbj-Qg-fON"/>
                                             <constraint firstItem="0w6-Wt-SfS" firstAttribute="leading" secondItem="MLK-KH-X35" secondAttribute="leadingMargin" id="vKV-HC-4PF">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                                             </constraint>
+                                            <constraint firstItem="HT0-qN-dEW" firstAttribute="centerX" secondItem="0w6-Wt-SfS" secondAttribute="centerX" id="whL-Un-GYf"/>
                                         </constraints>
-                                        <size key="customSize" width="80" height="80"/>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="0w6-Wt-SfS"/>
+                                                <exclude reference="HT0-qN-dEW"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="NmH-Cr-Zf5"/>
                                                 <exclude reference="VYr-6h-798"/>
                                                 <exclude reference="eZz-wD-9ex"/>
                                                 <exclude reference="vKV-HC-4PF"/>
+                                                <exclude reference="3qu-Dj-it2"/>
+                                                <exclude reference="9uU-7V-EQ4"/>
+                                                <exclude reference="kbj-Qg-fON"/>
+                                                <exclude reference="whL-Un-GYf"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="0w6-Wt-SfS"/>
+                                                <include reference="HT0-qN-dEW"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="NmH-Cr-Zf5"/>
                                                 <include reference="VYr-6h-798"/>
                                                 <include reference="eZz-wD-9ex"/>
                                                 <include reference="vKV-HC-4PF"/>
+                                                <include reference="3qu-Dj-it2"/>
+                                                <include reference="9uU-7V-EQ4"/>
+                                                <include reference="kbj-Qg-fON"/>
+                                                <include reference="whL-Un-GYf"/>
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="animatibleImageView" destination="0w6-Wt-SfS" id="QBG-rI-EaF"/>
+                                            <outlet property="giphImageView" destination="0w6-Wt-SfS" id="wSk-0K-pAo"/>
+                                            <outlet property="trendedLabel" destination="HT0-qN-dEW" id="6IE-1T-lmJ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

@@ -9,14 +9,42 @@
 import Foundation
 import SwiftyJSON
 
+let epoch = NSDate.init(timeIntervalSince1970: 0)
+
+enum ContentRating {
+    case NoHoldsBarred
+    case FamilyFriendly
+}
+
 struct Giph: JSONable {
     
     let id: String
     let username: String
     let urlString: String
-    let trendingDateString: String
     let rating: String
+    private let trendingDateString: String
     
+    var contentRating: ContentRating {
+        switch rating {
+        case "y", "z", "q":
+            return .FamilyFriendly
+        case "a", "x":
+            return .NoHoldsBarred
+        default:
+            return .NoHoldsBarred
+        }
+    }
+    
+    private var trendedDate: NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        print(trendingDateString) 
+        return dateFormatter.dateFromString(trendingDateString) ?? epoch
+    }
+    
+    var hasTrended: Bool {
+        return trendedDate.timeIntervalSince1970 > 0 ? true : false
+    }
     
     var url: NSURL {
         guard let url = NSURL(string: urlString) else {
@@ -24,7 +52,7 @@ struct Giph: JSONable {
         }
         return url
     }
-    
+
     static func fromJSON(json: JSON) -> Giph {
         let id = json["id"].stringValue
         let username = json["user"]["username"].stringValue
@@ -32,8 +60,8 @@ struct Giph: JSONable {
         let trendingDateString = json["trending_datetime"].stringValue
         let urlString = json["images"]["fixed_width_downsampled"]["url"].stringValue
 
-        return Giph(id: id, username: username, urlString: urlString, trendingDateString: trendingDateString,
-                rating: rating)
+        return Giph(id: id, username: username, urlString: urlString, rating: rating,
+                    trendingDateString: trendingDateString)
     }
     
     static func arrayFromJSON(object: AnyObject) -> [Giph] {
