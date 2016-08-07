@@ -22,7 +22,7 @@ class SecondViewController: UIViewController {
     let disposeBag = DisposeBag()
     private var viewModel: SearchGiphViewModel!
     
-    var searchText: String!
+    var searchText = Variable<String>("")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +36,9 @@ class SecondViewController: UIViewController {
     }
     
     func bindViewModel() {
-        viewModel = SearchGiphViewModel(giphyService: GiphyAPIService(), searchText: searchText)
+        viewModel = SearchGiphViewModel(searchText: searchText)
         viewModel.giphs
-            .bindTo(collectionView.rx_itemsWithCellIdentifier("cell", cellType: SearchResultsCollectionViewCell.self)) { (_, item, cell) in
+            .drive(collectionView.rx_itemsWithCellIdentifier("cell", cellType: SearchResultsCollectionViewCell.self)) { (_, item, cell) in
                 cell.configure(with: SearchCellViewModel(giph: item))
         }.addDisposableTo(disposeBag)
         

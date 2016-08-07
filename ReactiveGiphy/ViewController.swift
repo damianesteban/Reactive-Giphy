@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let nextViewController = segue.destinationViewController as! SecondViewController
-        nextViewController.searchText = searchTextBar.text ?? ""
+        nextViewController.searchText.value = searchTextBar.text ?? ""
     }
     
 }

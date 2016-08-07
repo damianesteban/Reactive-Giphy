@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxOptional
+import RxCocoa
 
 /*
  Actions:
@@ -21,23 +22,36 @@ import RxOptional
 class SearchGiphViewModel {
     
     // Input:
-    let searchText: String
+    var searchText = Variable("")
     // let filterGiphsObservable: PublishSubject<Bool>
     
     // Output:
-    let giphs: Observable<[Giph]>
+    lazy var giphs: Driver<[Giph]> = {
+        return self.searchText.asObservable()
+            .distinctUntilChanged()
+            .flatMapLatest {
+                self.fetchSearchResultsGiphs($0)
+        }
+            .asDriver(onErrorJustReturn: [])
+    }()
     // let titleObservable: Observable<String>
     
     // Private
     private let disposeBag = DisposeBag()
-    private let networkService: GiphyAPIService
+
     
     // MARK: - Initializer
-    init(giphyService: GiphyAPIService, searchText: String) {
-        self.networkService = giphyService
+    init(searchText: Variable<String>) {
         self.searchText = searchText
-        giphs = giphyService.fetchSearchResultsGiphs(searchText)
-        print("I'm being initialized")
+    }
+    
+    func fetchSearchResultsGiphs(query: String) -> Observable<[Giph]> {
+        return GiphyProvider.request(.Search(query))
+            .debug()
+            .mapJSON()
+            .map { json in
+                return Giph.arrayFromJSON(json)
+        }
     }
     
 
