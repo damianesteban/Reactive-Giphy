@@ -14,8 +14,6 @@ import Action
 
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var filterByRatingSwitch: UISwitch!
     
@@ -36,16 +34,15 @@ class SecondViewController: UIViewController {
     }
     
     func bindViewModel() {
+        navigationItem.title = "Search Results: \(searchText.value)"
         viewModel = SearchGiphViewModel(searchText: searchText)
+
+        
         viewModel.giphs
             .drive(collectionView.rx_itemsWithCellIdentifier("cell", cellType: SearchResultsCollectionViewCell.self)) { (_, item, cell) in
                 cell.configure(with: SearchCellViewModel(giph: item))
         }.addDisposableTo(disposeBag)
         
-        doneButton.rx_tap
-            .subscribeNext { [weak self] in
-                self?.dismissViewControllerAnimated(true, completion: nil)
-        }.addDisposableTo(disposeBag)
         
         filterByRatingSwitch
             .rx_value
@@ -53,7 +50,7 @@ class SecondViewController: UIViewController {
             .map { self.printBool($0) }
             .driveNext {
                 print("next")
-            }.addDisposableTo(disposeBag)
+        }.addDisposableTo(disposeBag)
     }
     
     func printBool(value: Bool) {

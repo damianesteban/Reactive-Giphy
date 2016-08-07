@@ -34,7 +34,6 @@ class SearchGiphViewModel {
         }
             .asDriver(onErrorJustReturn: [])
     }()
-    // let titleObservable: Observable<String>
     
     // Private
     private let disposeBag = DisposeBag()
