@@ -17,13 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTextBar: UITextField!
     @IBOutlet weak var searchButton: UIButton!
-
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     let disposeBag = DisposeBag()
     private var viewModel: TrendingGiphyViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColor = .blackColor()
         bindViewModel()
     }
 
@@ -57,10 +58,9 @@ class ViewController: UIViewController {
             .bindTo(searchButton.rx_enabled)
             .addDisposableTo(disposeBag)
         
-        // TODO: take another look at the Action library.
-        //        let action: Action<String, Bool> = Action(enabledIf: validSearchText, workFactory: { input in
-        //            return viewModel.validateSearchText(input)
-        //        })
+        viewModel.activityIndicator
+            .drive(activityIndicatorView.rx_animating)
+            .addDisposableTo(disposeBag)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
