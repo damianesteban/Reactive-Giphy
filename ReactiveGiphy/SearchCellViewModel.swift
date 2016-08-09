@@ -15,10 +15,10 @@ class SearchCellViewModel {
     
     // Input
     let username: String
-    private let id: String
-    private let trendingDateString: String
-    private let ratingString: String
-    private let urlString: String
+    let id: String
+    let trendingDateString: String
+    let ratingString: String
+    let urlString: String
     
     // Output
     var contentRating: ContentRating {
