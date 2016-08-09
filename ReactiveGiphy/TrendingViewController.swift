@@ -68,6 +68,15 @@ class TrendingViewController: UIViewController {
         viewModel.activityIndicator
             .drive(activityIndicatorView.rx_animating)
             .addDisposableTo(disposeBag)
+        
+        // Resigns first responder
+        collectionView
+            .rx_itemSelected
+            .subscribeNext { indexPath in
+                if self.searchTextBar.isFirstResponder() == true {
+                    self.view.endEditing(true)
+                }
+            }.addDisposableTo(disposeBag)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
