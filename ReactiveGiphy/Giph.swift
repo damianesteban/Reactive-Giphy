@@ -45,11 +45,11 @@ struct Giph: JSONable {
     static func fromJSON(json: JSON) -> Giph {
         let id = json["id"].stringValue
         let username = json["user"]["username"].stringValue
-        let rating = json["rating"].stringValue
+        let ratingString = json["rating"].stringValue
         let trendingDateString = json["trending_datetime"].stringValue
         let urlString = json["images"]["fixed_width_downsampled"]["url"].stringValue
 
-        return Giph(id: id, username: username, urlString: urlString, ratingString: rating,
+        return Giph(id: id, username: username, urlString: urlString, ratingString: ratingString,
                     trendingDateString: trendingDateString)
     }
     

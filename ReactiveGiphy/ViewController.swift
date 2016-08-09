@@ -10,7 +10,6 @@ import UIKit
 import SwiftyJSON
 import RxSwift
 import RxCocoa
-import Action
 
 class ViewController: UIViewController {
     

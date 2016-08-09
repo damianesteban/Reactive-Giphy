@@ -264,6 +264,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="QCE-gQ-XIZ" customClass="SearchResultsTableViewCell" customModule="ReactiveGiphy" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QCE-gQ-XIZ" id="xQ6-4C-yN0">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tf7-by-NvH">
@@ -359,20 +360,20 @@
                                                     <exclude reference="sdN-PD-Qk5"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="eCe-ew-9vW"/>
+                                                    <exclude reference="fdk-AO-Yoe"/>
+                                                    <exclude reference="4tY-yq-4oJ"/>
+                                                    <exclude reference="STO-yN-cj0"/>
+                                                    <exclude reference="TB9-yE-5Qe"/>
+                                                    <exclude reference="RAL-QN-p5b"/>
+                                                    <exclude reference="bXq-Jj-Ukx"/>
+                                                    <exclude reference="ev6-Qw-6B9"/>
+                                                    <exclude reference="pRu-ea-fAB"/>
                                                     <exclude reference="1lT-bz-qXX"/>
                                                     <exclude reference="7ZQ-qt-i4a"/>
                                                     <exclude reference="F1B-3z-eh0"/>
                                                     <exclude reference="Kka-CM-b12"/>
                                                     <exclude reference="TKQ-ss-WJx"/>
-                                                    <exclude reference="RAL-QN-p5b"/>
-                                                    <exclude reference="bXq-Jj-Ukx"/>
-                                                    <exclude reference="ev6-Qw-6B9"/>
-                                                    <exclude reference="pRu-ea-fAB"/>
-                                                    <exclude reference="4tY-yq-4oJ"/>
-                                                    <exclude reference="STO-yN-cj0"/>
-                                                    <exclude reference="TB9-yE-5Qe"/>
-                                                    <exclude reference="eCe-ew-9vW"/>
-                                                    <exclude reference="fdk-AO-Yoe"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -383,20 +384,20 @@
                                                     <include reference="sdN-PD-Qk5"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="eCe-ew-9vW"/>
+                                                    <include reference="fdk-AO-Yoe"/>
+                                                    <include reference="4tY-yq-4oJ"/>
+                                                    <include reference="STO-yN-cj0"/>
+                                                    <include reference="TB9-yE-5Qe"/>
+                                                    <include reference="RAL-QN-p5b"/>
+                                                    <include reference="bXq-Jj-Ukx"/>
+                                                    <include reference="ev6-Qw-6B9"/>
+                                                    <include reference="pRu-ea-fAB"/>
                                                     <include reference="1lT-bz-qXX"/>
                                                     <include reference="7ZQ-qt-i4a"/>
                                                     <include reference="F1B-3z-eh0"/>
                                                     <include reference="Kka-CM-b12"/>
                                                     <include reference="TKQ-ss-WJx"/>
-                                                    <include reference="RAL-QN-p5b"/>
-                                                    <include reference="bXq-Jj-Ukx"/>
-                                                    <include reference="ev6-Qw-6B9"/>
-                                                    <include reference="pRu-ea-fAB"/>
-                                                    <include reference="4tY-yq-4oJ"/>
-                                                    <include reference="STO-yN-cj0"/>
-                                                    <include reference="TB9-yE-5Qe"/>
-                                                    <include reference="eCe-ew-9vW"/>
-                                                    <include reference="fdk-AO-Yoe"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>

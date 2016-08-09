@@ -8,7 +8,6 @@
 
 import UIKit
 import Kingfisher
-import UIImageColors
 
 class SearchResultsTableViewCell: UITableViewCell {
 
