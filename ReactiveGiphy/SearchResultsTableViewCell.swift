@@ -8,6 +8,8 @@
 
 import UIKit
 import Kingfisher
+import RxSwift
+import RxCocoa
 
 class SearchResultsTableViewCell: UITableViewCell {
 
@@ -27,14 +29,17 @@ class SearchResultsTableViewCell: UITableViewCell {
             } else {
                 hasTrendedLabel.hidden = true
             }
-            usernameLabel.text = "POSTED BY: \(viewModel.username)"
+            let username = viewModel.username.isEmpty ? "Anonymous" : viewModel.username
+            usernameLabel.text = "POSTED BY: \(username)"
             ratingLabel.text = "RATING: \(viewModel.contentRating)"
         }
     }
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        contentView.backgroundColor = Constants.Colors.OffWhite
+        hasTrendedLabel.textColor = Constants.Colors.Green
+        ratingLabel.textColor = Constants.Colors.DarkGrey
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

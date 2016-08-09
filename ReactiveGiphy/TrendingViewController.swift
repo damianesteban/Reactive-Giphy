@@ -11,7 +11,7 @@ import SwiftyJSON
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+class TrendingViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTextBar: UITextField!
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .blackColor()
+        configureAppearance()
         bindViewModel()
     }
 
@@ -32,41 +32,61 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Binds the viewModel and associated properties to the ViewController
     func bindViewModel() {
-        viewModel = TrendingGiphyViewModel(giphyService: GiphyAPIService())
+        viewModel = TrendingGiphyViewModel()
+        
+        // Binds the viewModel's giphs to the collection view
         viewModel.giphs
             .bindTo(collectionView.rx_itemsWithCellIdentifier("cell",
                 cellType: TrendingGiphCollectionViewCell.self)) { (_, item, cell) in
-                cell.configure(with: item)
+                    cell.viewModel = TrendingCellViewModel(giph: item)
         }.addDisposableTo(disposeBag)
         
         
+        // Observable
         let validSearchText = searchTextBar
             .rx_text
             .map { self.viewModel.validateSearchText($0) }
             .shareReplay(1)
         
+        // Subscribes to observable to indicate to the user if they have entered enoug characters to
+        // perform a search.
         validSearchText
             .map { valid in
-                return valid ? UIColor.greenColor() : UIColor.clearColor()
+                return valid ? Constants.Colors.Green: Constants.Colors.GreyDivider
             }.subscribeNext { [weak self] color in
-                self?.searchTextBar.layer.borderColor = color.CGColor
+                self?.searchButton.tintColor = color
             }.addDisposableTo(disposeBag)
         
+        // Binds the value of the observable to the searchButton
         validSearchText
             .bindTo(searchButton.rx_enabled)
             .addDisposableTo(disposeBag)
         
+        // Displays a UIActivityIndicator while a network request is in progress
         viewModel.activityIndicator
             .drive(activityIndicatorView.rx_animating)
             .addDisposableTo(disposeBag)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let nextViewController = segue.destinationViewController as! SecondViewController
+        let nextViewController = segue.destinationViewController as! SearchResultsViewController
         nextViewController.searchText.value = searchTextBar.text ?? ""
     }
     
+}
+
+extension TrendingViewController {
+    // MARK: - Convenience method
+    func configureAppearance() {
+        navigationItem.title = "Reactive Giphy"
+        view.backgroundColor = Constants.Colors.WhiteAccent
+        collectionView.backgroundColor = .blackColor()
+        searchTextBar.layer.borderWidth = 2.0
+        searchTextBar.layer.borderColor = Constants.Colors.OrangeAccent.CGColor
+        searchTextBar.placeholder = "Enter your search term here!"
+    }
 }
 
 

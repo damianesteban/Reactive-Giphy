@@ -38,10 +38,6 @@ class GiphModelTests: XCTestCase {
         XCTAssertEqual(sut.trendingDateString, "1970-01-01 00:00:00", "Initializer should set trendingDateString")
     }
     
-    func testURL_ShouldReturnURL() {
-        XCTAssertEqual(sut.url, NSURL(string: "http://test.com")!, "Computed variable should return NSURL")
-    }
-    
     func testContentRating_ShouldReturnContentRating() {
         XCTAssertEqual(sut.contentRating, ContentRating.FamilyFriendly, "Computer variable should return ContentRating")
     }

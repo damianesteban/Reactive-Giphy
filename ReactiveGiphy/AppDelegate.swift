@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        configureNavbarAppearance()
         return true
     }
 
@@ -40,7 +41,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+extension AppDelegate {
+    // MARK - Convenience method to configure navbar appearance
+    func configureNavbarAppearance() {
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clearColor()], forState: UIControlState.Normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clearColor()], forState: UIControlState.Highlighted)
+        UINavigationBar.appearanceWhenContainedInInstancesOfClasses([UINavigationController.self]).barStyle = .Default
+        UINavigationBar.appearanceWhenContainedInInstancesOfClasses([UINavigationController.self]).barTintColor = Constants.Colors.BluePrimary
+        UINavigationBar.appearanceWhenContainedInInstancesOfClasses([UINavigationController.self]).tintColor = Constants.Colors.WhiteAccent
+        UINavigationBar.appearanceWhenContainedInInstancesOfClasses([UINavigationController.self]).translucent = false
+        
+        UINavigationBar.appearanceWhenContainedInInstancesOfClasses([UINavigationController.self]).titleTextAttributes =
+            [NSForegroundColorAttributeName: Constants.Colors.White, NSFontAttributeName: Constants.Fonts.HelveticaNeueBoldNavbar!]
+    }
 }
 

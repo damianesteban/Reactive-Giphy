@@ -14,11 +14,11 @@ import RxCocoa
 class SearchCellViewModel {
     
     // Input
-    let id: String
     let username: String
-    let trendingDateString: String
-    let ratingString: String
-    let urlString: String
+    private let id: String
+    private let trendingDateString: String
+    private let ratingString: String
+    private let urlString: String
     
     // Output
     var contentRating: ContentRating {
@@ -32,6 +32,9 @@ class SearchCellViewModel {
         }
     }
     
+    // Indicates if the Giph has trended in the past.
+    // I measured the performance of converting the strings to NSDate 
+    // and then doing the comparison.  Just comparing the strings is much faster.
     var hasTrended: Bool {
         switch trendingDateString {
         case "1970-01-01 00:00:00", "0000-00-00 00:00:00":
@@ -41,6 +44,7 @@ class SearchCellViewModel {
         }
     }
     
+    // Returns the url of the gif.
     var url: NSURL {
         guard let url = NSURL(string: urlString) else {
             fatalError("does not contain fixed width downsampled url")

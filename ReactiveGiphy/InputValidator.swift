@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 
+// Validates input (as the name so cleverly implies)
 protocol InputValidator {
     associatedtype ValidationResult = Bool
     func validateSearchText(text: String) -> Bool

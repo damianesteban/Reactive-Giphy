@@ -13,7 +13,10 @@ class TrendingGiphCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var animatibleImageView: AnimatedImageView!
     
-    func configure(with model: Giph) {
-        animatibleImageView.kf_setImageWithURL(model.url)
+    var viewModel: TrendingCellViewModel? {
+        didSet {
+            guard let viewModel = viewModel else { return }
+            animatibleImageView.kf_setImageWithURL(viewModel.url)
+        }
     }
 }
