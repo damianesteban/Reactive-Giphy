@@ -10,7 +10,6 @@
 		136FE249B4A3389894D68F83 /* Pods_ReactiveGiphy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1DCD0E497A3D30AF889FAA /* Pods_ReactiveGiphy.framework */; };
 		AD6BA4831A4E551863859CBD /* Pods_ReactiveGiphyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94269F7722783305F581943 /* Pods_ReactiveGiphyTests.framework */; };
 		FB0E939C1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E939B1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift */; };
-		FB0E939E1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E939D1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift */; };
 		FB0E93A01D5506D1007DA196 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E939F1D5506D1007DA196 /* InputValidator.swift */; };
 		FB0E93A21D551424007DA196 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E93A11D551424007DA196 /* SecondViewController.swift */; };
 		FB0E93A61D5520C9007DA196 /* StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0E93A51D5520C9007DA196 /* StoryBoard.swift */; };
@@ -22,8 +21,10 @@
 		FB35E0BF1D5391980064A789 /* GiphyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35E0BE1D5391980064A789 /* GiphyProvider.swift */; };
 		FB4EC4DF1D53C1AC00E910E2 /* TrendingGiphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4EC4DE1D53C1AC00E910E2 /* TrendingGiphViewModel.swift */; };
 		FB4EC4E11D53C76D00E910E2 /* GiphyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4EC4E01D53C76D00E910E2 /* GiphyAPIService.swift */; };
-		FB89C7C91D56C0150012742B /* SearchResultsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89C7C81D56C0150012742B /* SearchResultsCollectionViewCell.swift */; };
 		FBE0A5EB1D5777DF009390CD /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE0A5EA1D5777DF009390CD /* SearchCellViewModel.swift */; };
+		FBE18E831D59488A00CB0293 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE18E821D59488A00CB0293 /* SearchResultsTableViewCell.swift */; };
+		FBE18E851D5994BB00CB0293 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE18E841D5994BB00CB0293 /* ActivityIndicator.swift */; };
+		FBE18E871D599E7500CB0293 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE18E861D599E7500CB0293 /* Constants.swift */; };
 		FBFA06471D53798600646A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA06461D53798600646A3C /* AppDelegate.swift */; };
 		FBFA06491D53798600646A3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA06481D53798600646A3C /* ViewController.swift */; };
 		FBFA064C1D53798600646A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFA064A1D53798600646A3C /* Main.storyboard */; };
@@ -50,7 +51,6 @@
 		CC1DCD0E497A3D30AF889FAA /* Pods_ReactiveGiphy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveGiphy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94269F7722783305F581943 /* Pods_ReactiveGiphyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveGiphyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0E939B1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingGiphCollectionViewCell.swift; sourceTree = "<group>"; };
-		FB0E939D1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		FB0E939F1D5506D1007DA196 /* InputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		FB0E93A11D551424007DA196 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		FB0E93A51D5520C9007DA196 /* StoryBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoard.swift; sourceTree = "<group>"; };
@@ -63,8 +63,10 @@
 		FB35E0BE1D5391980064A789 /* GiphyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyProvider.swift; sourceTree = "<group>"; };
 		FB4EC4DE1D53C1AC00E910E2 /* TrendingGiphViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingGiphViewModel.swift; sourceTree = "<group>"; };
 		FB4EC4E01D53C76D00E910E2 /* GiphyAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyAPIService.swift; sourceTree = "<group>"; };
-		FB89C7C81D56C0150012742B /* SearchResultsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBE0A5EA1D5777DF009390CD /* SearchCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
+		FBE18E821D59488A00CB0293 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
+		FBE18E841D5994BB00CB0293 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		FBE18E861D599E7500CB0293 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FBFA06431D53798600646A3C /* ReactiveGiphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveGiphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBFA06461D53798600646A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBFA06481D53798600646A3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,9 +122,8 @@
 		FB0E939A1D54DFDD007DA196 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FB0E939D1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift */,
 				FB0E939B1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift */,
-				FB89C7C81D56C0150012742B /* SearchResultsCollectionViewCell.swift */,
+				FBE18E821D59488A00CB0293 /* SearchResultsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -140,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				FB0E93A51D5520C9007DA196 /* StoryBoard.swift */,
+				FBE18E841D5994BB00CB0293 /* ActivityIndicator.swift */,
+				FBE18E861D599E7500CB0293 /* Constants.swift */,
 			);
 			name = "Common UI";
 			sourceTree = "<group>";
@@ -443,18 +446,19 @@
 				FB0E93A21D551424007DA196 /* SecondViewController.swift in Sources */,
 				FB35E0BF1D5391980064A789 /* GiphyProvider.swift in Sources */,
 				FB0E939C1D54E001007DA196 /* TrendingGiphCollectionViewCell.swift in Sources */,
-				FB0E939E1D54E1A8007DA196 /* CollectionViewWaterfallLayout.swift in Sources */,
 				FB0E93A61D5520C9007DA196 /* StoryBoard.swift in Sources */,
 				FB4EC4E11D53C76D00E910E2 /* GiphyAPIService.swift in Sources */,
 				FB35E0B71D53867E0064A789 /* JSONable+Loader.swift in Sources */,
 				FB0E93A81D562845007DA196 /* SearchGiphViewModel.swift in Sources */,
 				FB0E93A01D5506D1007DA196 /* InputValidator.swift in Sources */,
-				FB89C7C91D56C0150012742B /* SearchResultsCollectionViewCell.swift in Sources */,
 				FBE0A5EB1D5777DF009390CD /* SearchCellViewModel.swift in Sources */,
 				FBFA06491D53798600646A3C /* ViewController.swift in Sources */,
+				FBE18E831D59488A00CB0293 /* SearchResultsTableViewCell.swift in Sources */,
 				FB4EC4DF1D53C1AC00E910E2 /* TrendingGiphViewModel.swift in Sources */,
 				FBFA06471D53798600646A3C /* AppDelegate.swift in Sources */,
 				FB35E0B41D53820B0064A789 /* Giph.swift in Sources */,
+				FBE18E851D5994BB00CB0293 /* ActivityIndicator.swift in Sources */,
+				FBE18E871D599E7500CB0293 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

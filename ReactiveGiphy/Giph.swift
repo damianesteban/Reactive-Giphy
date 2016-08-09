@@ -8,10 +8,10 @@
 
 import Foundation
 import SwiftyJSON
+import RxSwift
+import RxDataSources
 
-let epoch = NSDate.init(timeIntervalSince1970: 0)
-
-enum ContentRating {
+enum ContentRating: String {
     case NoHoldsBarred
     case FamilyFriendly
 }
@@ -21,29 +21,18 @@ struct Giph: JSONable {
     let id: String
     let username: String
     let urlString: String
-    let rating: String
-    private let trendingDateString: String
+    let ratingString: String
+    let trendingDateString: String
     
     var contentRating: ContentRating {
-        switch rating {
-        case "y", "z", "q":
+        switch ratingString {
+        case "y", "g", "pg", "pg-13":
             return .FamilyFriendly
-        case "a", "x":
+        case "y", "g", "pg", "pg-13", "r", "":
             return .NoHoldsBarred
         default:
             return .NoHoldsBarred
         }
-    }
-    
-    private var trendedDate: NSDate {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        print(trendingDateString) 
-        return dateFormatter.dateFromString(trendingDateString) ?? epoch
-    }
-    
-    var hasTrended: Bool {
-        return trendedDate.timeIntervalSince1970 > 0 ? true : false
     }
     
     var url: NSURL {
@@ -52,7 +41,7 @@ struct Giph: JSONable {
         }
         return url
     }
-
+    
     static func fromJSON(json: JSON) -> Giph {
         let id = json["id"].stringValue
         let username = json["user"]["username"].stringValue
@@ -60,7 +49,7 @@ struct Giph: JSONable {
         let trendingDateString = json["trending_datetime"].stringValue
         let urlString = json["images"]["fixed_width_downsampled"]["url"].stringValue
 
-        return Giph(id: id, username: username, urlString: urlString, rating: rating,
+        return Giph(id: id, username: username, urlString: urlString, ratingString: rating,
                     trendingDateString: trendingDateString)
     }
     
@@ -71,3 +60,13 @@ struct Giph: JSONable {
         }
     }
 }
+
+extension Giph: IdentifiableType {
+    var identity: String { return id }
+}
+
+
+
+
+
+

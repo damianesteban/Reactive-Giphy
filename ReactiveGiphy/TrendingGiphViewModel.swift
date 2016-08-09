@@ -13,9 +13,14 @@ final class TrendingGiphyViewModel: InputValidator {
     
     // Input
     var searchText = PublishSubject<String>()
+    let loading = Variable<Bool>(false)
     
     // Output
-    let giphs: Observable<[Giph]>
+    lazy var giphs: Observable<[Giph]> = {
+        return self.fetchTrendingGiphs()
+    }()
+    
+    let activityIndicator = ActivityIndicator()
     
     // Private
     private let disposeBag = DisposeBag()
@@ -24,11 +29,22 @@ final class TrendingGiphyViewModel: InputValidator {
     // MARK: - Initializer
     init(giphyService: GiphyAPIService) {
         self.networkService = giphyService
-        giphs = giphyService.fetchTrendingGiphs()
     }
     
     // MARK: - InputValidator method
     func validateSearchText(text: String) -> Bool {
         return text.characters.count > 3 ? true : false
+    }
+    
+    func fetchTrendingGiphs() -> Observable<[Giph]> {
+        return GiphyProvider.request(.Trending)
+            .trackActivity(self.activityIndicator)
+            .observeOn(MainScheduler.instance)
+            .debug()
+            .mapJSON()
+            .map { json in
+                self.loading.value = true
+                return Giph.arrayFromJSON(json)
+        }
     }
 }

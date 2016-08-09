@@ -10,38 +10,26 @@ import Foundation
 import RxSwift
 import RxOptional
 import RxCocoa
-
-/*
- Actions:
- 
- - Filter giphs based on rating
- - Display giph title
- - fetch giphs
- */
+import RxDataSources
 
 class SearchGiphViewModel {
+
+    // Input
+    var searchText = Variable<String>("")
     
-    // Input:
-    var searchText = Variable("")
-    // let filterGiphsObservable: PublishSubject<Bool>
-    
-    // Output:
-    lazy var giphs: Driver<[Giph]> = {
-        return self.searchText.asObservable()
-            .distinctUntilChanged()
-            .flatMapLatest {
-                self.fetchSearchResultsGiphs($0)
-        }
-            .asDriver(onErrorJustReturn: [])
-    }()
+    // Output
+    let giphData: Observable<[Giph]>
+    let filteredGiphData: Observable<[Giph]>
     
     // Private
-    private let disposeBag = DisposeBag()
-
+    private let provider: GiphyAPIService
     
-    // MARK: - Initializer
-    init(searchText: Variable<String>) {
+    // MARK - Initializer
+    init(searchText: Variable<String>, provider: GiphyAPIService) {
         self.searchText = searchText
+        self.provider = provider
+        giphData = provider.fetchSearchResultsGiphs(searchText.value)
+        filteredGiphData = provider.fetchSearchResultsGiphs(searchText.value)
     }
     
     func fetchSearchResultsGiphs(query: String) -> Observable<[Giph]> {
@@ -53,5 +41,10 @@ class SearchGiphViewModel {
         }
     }
     
-
+    func filterGiphsByContentRating(giphs: Observable<[Giph]>) -> Observable<[Giph]> {
+        return giphData
+            .map {
+                $0.filter { $0.contentRating == .FamilyFriendly }
+        }
+    }
 }

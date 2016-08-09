@@ -37,3 +37,23 @@ print(dateFormatter.dateFromString(dateString))
 //        return objects
 //    }
 //}
+
+struct Dude {
+    let name: String
+    let hair: String
+}
+
+struct Bob {
+    let name: String
+    let hair: String
+}
+
+let bs = [Bob(name: "asas", hair: "asas"), Bob(name: "asas", hair: "asas"), Bob(name: "asas", hair: "asas"), Bob(name: "asas", hair: "asas")]
+
+let ds = [Dude(name: "wewewe", hair: "qwqwqw"), Dude(name: "wewewe", hair: "qwqwqw"), Dude(name: "wewewe", hair: "qwqwqw"), Dude(name: "wewewe", hair: "qwqwqw")]
+
+let new = bs.map
+
+
+
+

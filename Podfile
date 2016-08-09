@@ -7,7 +7,7 @@ target 'ReactiveGiphy' do
   pod 'Moya/RxSwift'
   pod 'Kingfisher'
   pod 'RxOptional'
-  pod 'Action'
+  pod 'RxDataSources'
   pod 'RxCocoa'
   pod 'SwiftyJSON'
 
