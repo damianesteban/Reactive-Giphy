@@ -14,15 +14,13 @@ import Action
 
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var filterByRatingSwitch: UISwitch!
     
     let disposeBag = DisposeBag()
     private var viewModel: SearchGiphViewModel!
     
-    var searchText: String!
+    var searchText = Variable<String>("")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +34,30 @@ class SecondViewController: UIViewController {
     }
     
     func bindViewModel() {
-        viewModel = SearchGiphViewModel(giphyService: GiphyAPIService(), searchText: searchText)
+        navigationItem.title = "Search Results: \(searchText.value)"
+        viewModel = SearchGiphViewModel(searchText: searchText)
+
+        
         viewModel.giphs
-            .bindTo(collectionView.rx_itemsWithCellIdentifier("cell", cellType: TrendingGiphCollectionViewCell.self)) { (_, item, cell) in
-                cell.configure(with: item)
+            .drive(collectionView.rx_itemsWithCellIdentifier("cell", cellType: SearchResultsCollectionViewCell.self)) { (_, item, cell) in
+                cell.configure(with: SearchCellViewModel(giph: item))
         }.addDisposableTo(disposeBag)
         
-        doneButton.rx_tap
-            .subscribeNext { [weak self] in
-                self?.dismissViewControllerAnimated(true, completion: nil)
+        
+        filterByRatingSwitch
+            .rx_value
+            .asDriver()
+            .map { self.printBool($0) }
+            .driveNext {
+                print("next")
         }.addDisposableTo(disposeBag)
+    }
+    
+    func printBool(value: Bool) {
+        print(value)
+    }
+    
+    func bindSwitch() {
         
     }
 
