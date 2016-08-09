@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import RxOptional
 import RxCocoa
 import RxDataSources
 
@@ -18,22 +17,22 @@ class SearchGiphViewModel {
     var searchText = Variable<String>("")
     
     // Output
-    let giphData: Observable<[Giph]>
-    let filteredGiphData: Observable<[Giph]>
+    let activityIndicator = ActivityIndicator()
     
-    // Private
-    private let provider: GiphyAPIService
+    lazy var giphs: Observable<[Giph]> = {
+        return self.fetchSearchResultsGiphs()
+    }()
     
     // MARK - Initializer
-    init(searchText: Variable<String>, provider: GiphyAPIService) {
+    init(searchText: Variable<String>) {
         self.searchText = searchText
-        self.provider = provider
-        giphData = provider.fetchSearchResultsGiphs(searchText.value)
-        filteredGiphData = provider.fetchSearchResultsGiphs(searchText.value)
     }
     
-    func fetchSearchResultsGiphs(query: String) -> Observable<[Giph]> {
-        return GiphyProvider.request(.Search(query))
+    // Fetches search results from the giphy API
+    func fetchSearchResultsGiphs() -> Observable<[Giph]> {
+        return GiphyProvider.request(.Search(searchText.value))
+            .trackActivity(self.activityIndicator)
+            .observeOn(MainScheduler.instance)
             .debug()
             .mapJSON()
             .map { json in
@@ -41,8 +40,9 @@ class SearchGiphViewModel {
         }
     }
     
+    // Filters Giphs by ContentRating
     func filterGiphsByContentRating(giphs: Observable<[Giph]>) -> Observable<[Giph]> {
-        return giphData
+        return giphs
             .map {
                 $0.filter { $0.contentRating == .FamilyFriendly }
         }

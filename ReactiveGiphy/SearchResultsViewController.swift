@@ -18,32 +18,40 @@ struct TableViewDataSource {
     static var models = [Giph]()
 }
 
-class SecondViewController: UIViewController {
+class SearchResultsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var filterByRatingSwitch: UISwitch!
+    @IBOutlet weak var topFilterView: UIView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     let disposeBag = DisposeBag()
     
-    // The dataSource and "data" for RxDataSource.
+    // The dataSource and "data" for RxDataSource.  
+    // See here: https://github.com/RxSwiftCommunity/RxDataSources
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Giph>>()
-    let data = Variable([SectionModel(model: "Section 1", items: TableViewDataSource.models)])
+    let data = Variable([SectionModel(model: "Search Results", items: TableViewDataSource.models)])
     
     private var viewModel: SearchGiphViewModel!
     var searchText = Variable<String>("")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureAppearance()
         
-        // SET NAVBAR TITILE
+        // Instiates our ViewModel
+        viewModel = SearchGiphViewModel(searchText: searchText)
         
+        // Sets navbar title to search term
+        viewModel.searchText
+            .asDriver()
+            .driveNext { [weak self] query in
+                self?.navigationItem.title = query
+        }.addDisposableTo(disposeBag)
         
         // Sets the switch value to false by default
         filterByRatingSwitch.on = false
 
-        // Instiates our ViewModel
-        viewModel = SearchGiphViewModel(searchText: searchText, provider: GiphyAPIService())
-        
         // Configures the tableview's RxDataSource
         dataSource.configureCell = { _, tableView, indexPath, dataSourceItem in
             let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SearchResultsTableViewCell
@@ -56,23 +64,29 @@ class SecondViewController: UIViewController {
             .drive(tableView.rx_itemsWithDataSource(dataSource))
             .addDisposableTo(disposeBag)
         
+        // Sets the section header
+        dataSource.titleForHeaderInSection = {
+            $0.sectionAtIndex($1).model
+        }
+        
         //MARK: - Observables for RxDataSources
         // This can be refactored significantly.  I had never worked with RxDataSources before and
-        // while it is awesomely powerful it is a bit tricky to work with at first.
+        // while it is very powerful I found it a bit tricky to work with at first.  I plan on spending
+        // a lot of time with this library.
         
         // Non-filtered giphs
-        let giphsObservable = viewModel.giphData
+        let giphsObservable = viewModel.giphs
             .map {
                 let giphs = Variable<[Giph]>($0)
-                self.data.value = [SectionModel(model: "", items: $0)]
+                self.data.value = [SectionModel(model: "Search Results", items: $0)]
                 print("COUNT: \(giphs.value.count)")
             }.asObservable()
         
         // Filtered giphs
-        let filteredGiphsObservable = viewModel.filterGiphsByContentRating(viewModel.giphData)
+        let filteredGiphsObservable = viewModel.filterGiphsByContentRating(viewModel.giphs)
             .map {
                 let filteredGiphs = Variable<[Giph]>($0)
-                self.data.value = [SectionModel(model: "", items: $0)]
+                self.data.value = [SectionModel(model: "Search Results", items: $0)]
                 print("COUNT: \(filteredGiphs.value.count)")
             }.asObservable()
 
@@ -91,20 +105,34 @@ class SecondViewController: UIViewController {
                 
                 if value == true {
                     filteredGiphsObservable.subscribeNext { _ in
-                        print("yay")
                     }.addDisposableTo(self.disposeBag)
                 }
                 
                 if value == false {
                     giphsObservable.subscribeNext { _ in
-                        print("yay")
                     }.addDisposableTo(self.disposeBag)
                 }
             }.addDisposableTo(disposeBag)
+        
+        viewModel.activityIndicator
+            .drive(activityIndicatorView.rx_animating)
+            .addDisposableTo(disposeBag)
         }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension SearchResultsViewController {
+    // MARK: - Convenience Method
+    func configureAppearance() {
+        tableView.backgroundColor = Constants.Colors.OffWhite
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        tableView.separatorColor = Constants.Colors.GreyDivider
+        filterByRatingSwitch.thumbTintColor = Constants.Colors.Green
+        filterByRatingSwitch.tintColor = Constants.Colors.BluePrimary
+        filterByRatingSwitch.onTintColor = Constants.Colors.BluePrimary
     }
 }

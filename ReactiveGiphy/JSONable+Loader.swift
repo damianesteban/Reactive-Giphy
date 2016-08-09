@@ -9,11 +9,13 @@
 import Foundation
 import SwiftyJSON
 
+// Loads JSON from a file for testing
 protocol JSONLoader {
     func loadJSONFromFile(filename: String) -> JSON
     func jsonString(filename: String) -> String
 }
 
+// Convenience extension
 extension JSONLoader {
     func loadJSONFromFile(filename: String) -> JSON {
         let path = NSBundle.mainBundle().pathForResource(filename, ofType:"json")
@@ -30,7 +32,9 @@ extension JSONLoader {
     }
 }
 
+// Returns an instance of the conforming type from JSONO
 protocol JSONable {
     static func fromJSON(json: JSON) -> Self
+    static func arrayFromJSON(object: AnyObject) -> [Self]
 }
 

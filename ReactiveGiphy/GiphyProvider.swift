@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 // Giphy API Key.
-private let apiKey = "dc6zaTOxFJmzC"
+private let apiKey = Constants.apiKey
 
 // MARK: JSON formatting extension.
 private func JSONResponseDataFormatter(data: NSData) -> NSData {
@@ -30,6 +30,7 @@ private extension String {
     }
 }
 
+// Convenience typealias
 typealias Parameters = [String: AnyObject]?
 
 // MARK: - Provider
@@ -45,7 +46,7 @@ enum GiphyAPI {
 extension GiphyAPI: TargetType {
     
     // The base URL
-    var baseURL: NSURL { return NSURL(string: "https://api.giphy.com/v1/gifs")! }
+    var baseURL: NSURL { return NSURL(string: Constants.baseURLString )! }
     
     // URL path
     var path: String {

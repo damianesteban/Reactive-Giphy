@@ -8,9 +8,9 @@
 
 import Foundation
 import SwiftyJSON
-import RxSwift
 import RxDataSources
 
+// Content rating
 enum ContentRating: String {
     case NoHoldsBarred
     case FamilyFriendly
@@ -24,9 +24,10 @@ struct Giph: JSONable {
     let ratingString: String
     let trendingDateString: String
     
+    // Returns the Giph's ContentRating based on the ratingString
     var contentRating: ContentRating {
         switch ratingString {
-        case "y", "g", "pg", "pg-13":
+        case "y", "g", "pg":
             return .FamilyFriendly
         case "y", "g", "pg", "pg-13", "r", "":
             return .NoHoldsBarred
@@ -35,21 +36,15 @@ struct Giph: JSONable {
         }
     }
     
-    var url: NSURL {
-        guard let url = NSURL(string: urlString) else {
-            fatalError("does not contain fixed width downsampled url")
-        }
-        return url
-    }
-    
+    // MARK: - JSONable methods
     static func fromJSON(json: JSON) -> Giph {
         let id = json["id"].stringValue
         let username = json["user"]["username"].stringValue
-        let rating = json["rating"].stringValue
+        let ratingString = json["rating"].stringValue
         let trendingDateString = json["trending_datetime"].stringValue
         let urlString = json["images"]["fixed_width_downsampled"]["url"].stringValue
 
-        return Giph(id: id, username: username, urlString: urlString, ratingString: rating,
+        return Giph(id: id, username: username, urlString: urlString, ratingString: ratingString,
                     trendingDateString: trendingDateString)
     }
     
@@ -61,6 +56,7 @@ struct Giph: JSONable {
     }
 }
 
+// MARK - Conforms to SectionModel for RxDataSources
 extension Giph: IdentifiableType {
     var identity: String { return id }
 }
