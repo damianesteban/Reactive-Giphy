@@ -55,7 +55,7 @@ class SearchResultsViewController: UIViewController {
         // Configures the tableview's RxDataSource
         dataSource.configureCell = { _, tableView, indexPath, dataSourceItem in
             let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SearchResultsTableViewCell
-            cell.viewModel = SearchCellViewModel(giph: dataSourceItem)
+            cell.rx_start(with: dataSourceItem)
             return cell
         }
         

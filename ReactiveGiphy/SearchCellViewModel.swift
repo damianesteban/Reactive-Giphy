@@ -21,14 +21,14 @@ class SearchCellViewModel {
     let urlString: String
     
     // Output
-    var contentRating: ContentRating {
+    var contentRating: String {
         switch ratingString {
         case "y", "g", "pg", "pg-13":
-            return .FamilyFriendly
+            return ContentRating.FamilyFriendly.rawValue
         case "y", "g", "pg", "pg-13", "r", "":
-            return .NoHoldsBarred
+            return ContentRating.NoHoldsBarred.rawValue
         default:
-            return .NoHoldsBarred
+            return ContentRating.NoHoldsBarred.rawValue
         }
     }
     

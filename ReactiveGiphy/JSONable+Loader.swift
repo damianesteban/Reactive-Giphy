@@ -8,6 +8,42 @@
 
 import Foundation
 import SwiftyJSON
+import RxSwift
+import Moya
+
+enum ReactiveGiphyError: String {
+    case ParseJSONError
+    case MissingDataError
+}
+
+extension ReactiveGiphyError: ErrorType {}
+
+extension Observable {
+    typealias Dictionary = JSON
+    
+    // pass JSONified data back to objects
+    func mapToObject<T: JSONable>(classType: T.Type) -> Observable<T> {
+        return self.map { json in
+            guard let dict = json as? JSON else {
+                throw ReactiveGiphyError.ParseJSONError
+            }
+            
+            return T.fromJSON(dict)
+        }
+    }
+    
+    func mapToObjectArray<T: JSONable>(classType: T.Type) -> Observable<[T]> {
+        return self.map { json in
+            guard let array = json as? JSON else {
+                throw ReactiveGiphyError.ParseJSONError
+            }
+            
+            let dicts = array.arrayValue
+            
+            return dicts.map { T.fromJSON($0) }
+        }
+    }
+}
 
 // Loads JSON from a file for testing
 protocol JSONLoader {
