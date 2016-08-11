@@ -10,12 +10,14 @@ target 'ReactiveGiphy' do
   pod 'RxDataSources'
   pod 'RxCocoa'
   pod 'SwiftyJSON'
+  pod 'RxBlocking'
 
   # Pods for ReactiveGiphy
 
   target 'ReactiveGiphyTests' do
     inherit! :search_paths
-    # Pods for testing
+        pod 'Quick'
+        pod 'Nimble'
   end
 
 end

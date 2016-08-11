@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9wD-Gl-R3C">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -295,12 +294,18 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="104" y="64" width="128" height="13"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRENDED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYx-pR-60r">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="104" y="43" width="125" height="13"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRENDED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdN-PD-Qk5">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -315,7 +320,8 @@
                                                             <exclude reference="D0e-3b-4bp"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="104" y="14" width="128" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="D0e-3b-4bp"/>
                                                         </mask>
@@ -435,6 +441,9 @@
                                 <exclude reference="W8k-OD-Fiw"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="VzH-XQ-UIy"/>
+                                <exclude reference="fUO-Qm-o1Q"/>
+                                <exclude reference="nUi-pJ-qae"/>
                                 <exclude reference="Ihh-Zr-Jg9"/>
                                 <exclude reference="eep-P2-PQQ"/>
                                 <exclude reference="hX2-UC-pHI"/>
@@ -442,9 +451,6 @@
                                 <exclude reference="yyz-6w-AB4"/>
                                 <exclude reference="Slb-0U-lTk"/>
                                 <exclude reference="uXl-BT-V8r"/>
-                                <exclude reference="VzH-XQ-UIy"/>
-                                <exclude reference="fUO-Qm-o1Q"/>
-                                <exclude reference="nUi-pJ-qae"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -454,6 +460,9 @@
                                 <include reference="W8k-OD-Fiw"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="VzH-XQ-UIy"/>
+                                <include reference="fUO-Qm-o1Q"/>
+                                <include reference="nUi-pJ-qae"/>
                                 <include reference="Ihh-Zr-Jg9"/>
                                 <include reference="eep-P2-PQQ"/>
                                 <include reference="hX2-UC-pHI"/>
@@ -461,9 +470,6 @@
                                 <include reference="yyz-6w-AB4"/>
                                 <include reference="Slb-0U-lTk"/>
                                 <include reference="uXl-BT-V8r"/>
-                                <include reference="VzH-XQ-UIy"/>
-                                <include reference="fUO-Qm-o1Q"/>
-                                <include reference="nUi-pJ-qae"/>
                             </mask>
                         </variation>
                     </view>
