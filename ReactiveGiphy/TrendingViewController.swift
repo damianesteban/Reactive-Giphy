@@ -38,9 +38,8 @@ class TrendingViewController: UIViewController {
         
         // Binds the viewModel's giphs to the collection view
         viewModel.giphs
-            .bindTo(collectionView.rx_itemsWithCellIdentifier("cell",
-                cellType: TrendingGiphCollectionViewCell.self)) { (_, item, cell) in
-                    cell.viewModel = TrendingCellViewModel(giph: item)
+            .bindTo(collectionView.rx_itemsWithCellIdentifier("cell", cellType: TrendingGiphCollectionViewCell.self)) { _, item, cell in
+                cell.rx_start(with: item)
         }.addDisposableTo(disposeBag)
         
         

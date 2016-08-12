@@ -21,9 +21,12 @@ class SearchResultsTableViewCell: UITableViewCell {
     let disposeBag = DisposeBag()
     
     func rx_start(with giph: Giph) {
+        // ViewModel is declared as a BehaviorSubject
+        // http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#BehaviorSubject
         let viewModel = BehaviorSubject<SearchCellViewModel>(value: SearchCellViewModel(giph: giph))
 
-        
+        // Because our ViewModel is now a BehaviorSubject, we can subscribe to / transform
+        // any of its attributes
         viewModel.map {
             if $0.hasTrended {
                 return "TRENDED"
@@ -55,7 +58,6 @@ class SearchResultsTableViewCell: UITableViewCell {
                 guard let imageView = self?.giphImageView else { return }
                 imageView.kf_setImageWithURL(url)
             }.addDisposableTo(disposeBag)
-        
         }
     
     override func awakeFromNib() {
