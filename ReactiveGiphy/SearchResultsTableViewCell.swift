@@ -25,8 +25,10 @@ class SearchResultsTableViewCell: UITableViewCell {
         // http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#BehaviorSubject
         let viewModel = BehaviorSubject<SearchCellViewModel>(value: SearchCellViewModel(giph: giph))
 
-        // Because our ViewModel is now a BehaviorSubject, we can subscribe to / transform
-        // any of its attributes
+        // Because our ViewModel is now a BehaviorSubject, 
+        // we can subscribe to / transform any of its attributes
+        
+        // Indicates if a Giph has trended
         viewModel.map {
             if $0.hasTrended {
                 return "TRENDED"
@@ -36,9 +38,9 @@ class SearchResultsTableViewCell: UITableViewCell {
         }
         .bindTo(hasTrendedLabel.rx_text)
         .addDisposableTo(disposeBag)
-
         
-        viewModel.map { $0.contentRating }
+        // Indicates a Giph's Content Rating
+        viewModel.map { "Content Rating: \($0.contentRating)" }
             .bindTo(ratingLabel.rx_text)
             .addDisposableTo(disposeBag)
         
@@ -52,6 +54,7 @@ class SearchResultsTableViewCell: UITableViewCell {
         .bindTo(usernameLabel.rx_text)
         .addDisposableTo(disposeBag)
         
+        // Sets the gif with Kingfisher.
         viewModel.map { (viewModel) -> NSURL in
             return viewModel.url
             }.subscribeNext { [weak self] url in
