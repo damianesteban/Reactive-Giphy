@@ -17,24 +17,52 @@ class SearchResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var hasTrendedLabel: UILabel!
+
+    let disposeBag = DisposeBag()
     
-    var viewModel: SearchCellViewModel? {
-        didSet {
-            guard let viewModel = viewModel else { return }
-            giphImageView.kf_setImageWithURL(viewModel.url)
-            
-            if viewModel.hasTrended {
-                hasTrendedLabel.hidden = false
-                hasTrendedLabel.text = "TRENDED"
-            } else {
-                hasTrendedLabel.hidden = true
-            }
-            let username = viewModel.username.isEmpty ? "Anonymous" : viewModel.username
-            usernameLabel.text = "POSTED BY: \(username)"
-            ratingLabel.text = "RATING: \(viewModel.contentRating)"
-        }
-    }
+    func rx_start(with giph: Giph) {
+        // ViewModel is declared as a BehaviorSubject
+        // http://www.introtorx.com/Content/v1.0.10621.0/02_KeyTypes.html#BehaviorSubject
+        let viewModel = BehaviorSubject<SearchCellViewModel>(value: SearchCellViewModel(giph: giph))
+
+        // Because our ViewModel is now a BehaviorSubject, 
+        // we can subscribe to / transform any of its attributes
         
+        // Indicates if a Giph has trended
+        viewModel.map {
+            if $0.hasTrended {
+                return "TRENDED"
+            } else {
+                return ""
+            }
+        }
+        .bindTo(hasTrendedLabel.rx_text)
+        .addDisposableTo(disposeBag)
+        
+        // Indicates a Giph's Content Rating
+        viewModel.map { "Content Rating: \($0.contentRating)" }
+            .bindTo(ratingLabel.rx_text)
+            .addDisposableTo(disposeBag)
+        
+        viewModel.map {
+            if $0.username.isEmpty {
+                return "POSTED BY: ANONYMOUS"
+            } else {
+             return "POSTED BY: \($0.username)"
+            }
+        }
+        .bindTo(usernameLabel.rx_text)
+        .addDisposableTo(disposeBag)
+        
+        // Sets the gif with Kingfisher.
+        viewModel.map { (viewModel) -> NSURL in
+            return viewModel.url
+            }.subscribeNext { [weak self] url in
+                guard let imageView = self?.giphImageView else { return }
+                imageView.kf_setImageWithURL(url)
+            }.addDisposableTo(disposeBag)
+        }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.backgroundColor = Constants.Colors.OffWhite

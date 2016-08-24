@@ -7,7 +7,11 @@ PODS:
   - Moya/RxSwift (6.5.0):
     - Moya/Core
     - RxSwift (~> 2.0)
+  - Nimble (4.1.0)
+  - Quick (0.9.2)
   - Result (2.1.1)
+  - RxBlocking (2.5.0):
+    - RxSwift (~> 2.5)
   - RxCocoa (2.5.0):
     - RxSwift (~> 2.5)
   - RxDataSources (0.8.1):
@@ -22,6 +26,9 @@ PODS:
 DEPENDENCIES:
   - Kingfisher
   - Moya/RxSwift
+  - Nimble
+  - Quick
+  - RxBlocking
   - RxCocoa
   - RxDataSources
   - RxOptional
@@ -31,13 +38,16 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
+  Nimble: 97a0a4cae5124c117115634b2d055d8c97d0af19
+  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
   Result: 822c879f145943320cc80a9a8372378e3d699fe4
+  RxBlocking: 595d9ab56dde6b00beaa5aba40e95b150d2135f1
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxDataSources: 4a87345847d66ef84ecc10bdfa189190f3cd6b12
   RxOptional: b77fb47a0190213cf8a37c7a2b7fda28160b4563
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: dc652dcb1b018b5b8a74c25035aa7bca77376fd9
+PODFILE CHECKSUM: 3e4c4159467344bd8cbd675e82766d430298b817
 
 COCOAPODS: 1.0.1

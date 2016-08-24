@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// Constants for the app
 struct Constants {
     
     static let apiKey = "dc6zaTOxFJmzC"

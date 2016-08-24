@@ -19,6 +19,7 @@ class SearchGiphViewModel {
     // Output
     let activityIndicator = ActivityIndicator()
     
+    
     lazy var giphs: Observable<[Giph]> = {
         return self.fetchSearchResultsGiphs()
     }()
