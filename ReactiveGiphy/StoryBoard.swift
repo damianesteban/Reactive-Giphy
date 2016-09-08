@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// Extensions which I normally add to a project when using storyboards.
 enum SegueIdentifier: String {
     case ShowSearchResults
 }

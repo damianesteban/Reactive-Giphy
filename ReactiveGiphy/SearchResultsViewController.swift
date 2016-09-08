@@ -70,9 +70,8 @@ class SearchResultsViewController: UIViewController {
         }
         
         //MARK: - Observables for RxDataSources
-        // This can be refactored significantly.  I had never worked with RxDataSources before and
-        // while it is very powerful I found it a bit tricky to work with at first.  I plan on spending
-        // a lot of time with this library.
+        // This can be refactored significantly.  
+        // RxDataSources is a very powerful library and a lot can be done with it
         
         // Non-filtered giphs
         let giphsObservable = viewModel.giphs
@@ -91,9 +90,7 @@ class SearchResultsViewController: UIViewController {
             }.asObservable()
 
         // MARK: - Filter state
-        // Again, this can be refactored.  Usually when you have nested subscribe blocks it is a potential
-        // code smell...I'm sure there is a cleaner way to handle this.  I plan on working with RxDataSources
-        // quite a bit more to fully understand it.
+        // Again, this can be refactored.
         
         // I chose to use the Driver unit below as it is designed specifically for UI-related / main thread
         // operations.  See: https://github.com/ReactiveX/RxSwift/blob/master/Documentation/Units.md#driver-unit
